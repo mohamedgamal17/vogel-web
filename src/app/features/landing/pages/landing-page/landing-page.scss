@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.cta-login-on-primary {
+  --mdc-filled-button-container-color: var(--mat-sys-on-primary);
+  --mdc-filled-button-label-text-color: var(--mat-sys-primary);
+  --mat-filled-button-state-layer-color: var(--mat-sys-primary);
+}
+
+.final-cta-login-button {
+  --mdc-filled-button-container-color: var(--mat-sys-inverse-surface);
+  --mdc-filled-button-label-text-color: var(--mat-sys-inverse-on-surface);
+  --mat-filled-button-state-layer-color: var(--mat-sys-primary);
+}
+
+.final-cta-supporting-text {
+  color: color-mix(in srgb, var(--mat-sys-on-primary) 94%, transparent);
+}

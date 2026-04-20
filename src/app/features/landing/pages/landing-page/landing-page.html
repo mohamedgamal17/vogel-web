@@ -1,0 +1,211 @@
+<div class="flex min-h-screen flex-col bg-[var(--mat-sys-surface)] text-[var(--mat-sys-on-surface)]">
+  <mat-toolbar
+    class="landing-toolbar sticky top-0 z-50 border-b border-[color-mix(in_srgb,var(--mat-sys-outline)_12%,transparent)] px-2 shadow-sm sm:px-4"
+    color="primary"
+  >
+    <span class="text-lg font-semibold tracking-tight sm:text-xl">Vogel</span>
+    <span class="flex-1"></span>
+    <div class="flex flex-wrap items-center justify-end gap-2">
+      <button mat-flat-button type="button" class="cta-login-on-primary" (click)="onLogin()">
+        Log in with Auth0
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section
+      class="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
+      aria-labelledby="hero-heading"
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--mat-sys-primary-container)_55%,transparent)] via-transparent to-[color-mix(in_srgb,var(--mat-sys-tertiary-container)_40%,transparent)]"
+        aria-hidden="true"
+      ></div>
+      <div class="relative mx-auto max-w-4xl text-center">
+        <p class="mb-3 text-sm font-medium uppercase tracking-wide text-[var(--mat-sys-primary)]">
+          Social, without the noise
+        </p>
+        <h1 id="hero-heading" class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          Meet people. Share what matters. Stay in control on Vogel.
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base text-[var(--mat-sys-on-surface-variant)] sm:text-lg">
+          Vogel is a social platform built for authentic connection—discover communities, post moments, and
+          message friends with a sign-in experience powered by Auth0.
+        </p>
+        <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <button mat-flat-button type="button" color="primary" class="!px-8 !py-2 !text-base" (click)="onLogin()">
+            Log in with Auth0
+          </button>
+        </div>
+        <p class="mt-4 text-xs text-[var(--mat-sys-on-surface-variant)]">
+          CTAs are visual only in this build—Auth0 integration comes next.
+        </p>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section
+      class="border-y border-[color-mix(in_srgb,var(--mat-sys-outline)_12%,transparent)] bg-[var(--mat-sys-surface-container-low)] px-4 py-6 sm:px-6 lg:px-8"
+      aria-labelledby="trust-heading"
+    >
+      <h2 id="trust-heading" class="sr-only">Trust and scale</h2>
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
+      >
+        <p class="text-sm font-medium text-[var(--mat-sys-on-surface)]">
+          Trusted by <span class="font-semibold text-[var(--mat-sys-primary)]">10,000+</span> early members
+        </p>
+        <p class="text-sm text-[var(--mat-sys-on-surface-variant)]">
+          Secure sign-in powered by <span class="font-medium text-[var(--mat-sys-on-surface)]">Auth0</span>
+          — industry-standard identity for your account.
+        </p>
+      </div>
+    </section>
+
+    <!-- Feature highlights -->
+    <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="features-heading">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="features-heading" class="text-center text-3xl font-bold tracking-tight sm:text-4xl">
+          Everything you need to stay social
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-center text-[var(--mat-sys-on-surface-variant)]">
+          Built for discovery, expression, and conversation—whether you’re sharing publicly or with your
+          circle.
+        </p>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <mat-card class="!rounded-2xl !shadow-sm">
+            <mat-card-header>
+              <div mat-card-avatar class="flex items-center justify-center rounded-full bg-[var(--mat-sys-primary-container)]">
+                <mat-icon class="text-[var(--mat-sys-on-primary-container)]" aria-hidden="true">groups</mat-icon>
+              </div>
+              <mat-card-title>Discover people</mat-card-title>
+              <mat-card-subtitle>Find your communities</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="text-sm text-[var(--mat-sys-on-surface-variant)]">
+                Follow interests, join conversations, and grow your network with recommendations tuned to
+                what you care about.
+              </p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="!rounded-2xl !shadow-sm">
+            <mat-card-header>
+              <div mat-card-avatar class="flex items-center justify-center rounded-full bg-[var(--mat-sys-tertiary-container)]">
+                <mat-icon class="text-[var(--mat-sys-on-tertiary-container)]" aria-hidden="true"
+                  >photo_camera</mat-icon
+                >
+              </div>
+              <mat-card-title>Share moments</mat-card-title>
+              <mat-card-subtitle>Posts that feel like you</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="text-sm text-[var(--mat-sys-on-surface-variant)]">
+                Publish updates, media, and stories with a feed experience designed for clarity—not endless
+                distraction.
+              </p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="!rounded-2xl !shadow-sm sm:col-span-2 lg:col-span-1">
+            <mat-card-header>
+              <div mat-card-avatar class="flex items-center justify-center rounded-full bg-[var(--mat-sys-secondary-container)]">
+                <mat-icon class="text-[var(--mat-sys-on-secondary-container)]" aria-hidden="true">forum</mat-icon>
+              </div>
+              <mat-card-title>Message &amp; community</mat-card-title>
+              <mat-card-subtitle>Private &amp; group spaces</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="text-sm text-[var(--mat-sys-on-surface-variant)]">
+                Chat one-to-one or in groups, with controls that help you manage notifications and who can
+                reach you.
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section
+      class="bg-[var(--mat-sys-surface-container-low)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      aria-labelledby="how-heading"
+    >
+      <div class="mx-auto max-w-6xl">
+        <h2 id="how-heading" class="text-center text-3xl font-bold tracking-tight sm:text-4xl">
+          How Vogel works
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-center text-[var(--mat-sys-on-surface-variant)]">
+          Three simple steps from “curious” to “connected.”
+        </p>
+        <ol class="mt-12 grid list-none gap-8 p-0 sm:grid-cols-3">
+          <li class="flex flex-col items-center text-center">
+            <span
+              class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--mat-sys-primary)] text-lg font-bold text-[var(--mat-sys-on-primary)]"
+              >1</span
+            >
+            <h3 class="text-lg font-semibold">Join with Auth0</h3>
+            <p class="mt-2 max-w-xs text-sm text-[var(--mat-sys-on-surface-variant)]">
+              Create your account through Auth0 for a secure, familiar login you can trust.
+            </p>
+          </li>
+          <li class="flex flex-col items-center text-center">
+            <span
+              class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--mat-sys-primary)] text-lg font-bold text-[var(--mat-sys-on-primary)]"
+              >2</span
+            >
+            <h3 class="text-lg font-semibold">Personalize your profile</h3>
+            <p class="mt-2 max-w-xs text-sm text-[var(--mat-sys-on-surface-variant)]">
+              Add your vibe, pick interests, and choose how you want to show up to others.
+            </p>
+          </li>
+          <li class="flex flex-col items-center text-center">
+            <span
+              class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--mat-sys-primary)] text-lg font-bold text-[var(--mat-sys-on-primary)]"
+              >3</span
+            >
+            <h3 class="text-lg font-semibold">Connect &amp; create</h3>
+            <p class="mt-2 max-w-xs text-sm text-[var(--mat-sys-on-surface-variant)]">
+              Follow, post, and message—Vogel keeps the focus on real relationships.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section
+      class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+      aria-labelledby="final-cta-heading"
+    >
+      <div
+        class="mx-auto max-w-4xl rounded-3xl bg-[var(--mat-sys-primary)] px-6 py-12 text-center text-[var(--mat-sys-on-primary)] sm:px-10"
+      >
+        <h2 id="final-cta-heading" class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Ready to join Vogel?
+        </h2>
+        <p class="final-cta-supporting-text mx-auto mt-4 max-w-xl text-sm sm:text-base">
+          Sign in with Auth0 to get started - your people are already here.
+        </p>
+        <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:justify-center">
+          <button
+            mat-flat-button
+            type="button"
+            class="cta-login-on-primary final-cta-login-button !px-8"
+            (click)="onLogin()"
+          >
+            Log in with Auth0
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-auto border-t border-[color-mix(in_srgb,var(--mat-sys-outline)_12%,transparent)] px-4 py-8 sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-sm text-[var(--mat-sys-on-surface-variant)] sm:flex-row sm:text-left">
+      <span>&copy; {{ currentYear }} Vogel. All rights reserved.</span>
+      <span>Authentication powered by Auth0.</span>
+    </div>
+  </footer>
+</div>
