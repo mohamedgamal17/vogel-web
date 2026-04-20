@@ -1,0 +1,34 @@
+---
+description: Standardize ng-icons usage with Heroicons and icon selection workflow
+globs: src/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Icons: ng-icons + Heroicons
+
+## Preferred icon system
+
+- Use `ng-icons` with **Heroicons** for app icons in templates and UI components.
+- Keep icon usage consistent across features instead of mixing multiple icon sets for similar actions.
+
+## Selection workflow
+
+- Pick icon names from the official browser before adding them:
+  - [https://ng-icons.github.io/ng-icons/#/browse-icons](https://ng-icons.github.io/ng-icons/#/browse-icons)
+- Do not guess icon names or invent variants that are not listed in the browser.
+
+## Usage consistency
+
+- Use one Heroicons style per context (outline or solid) and keep it consistent within the same screen/feature.
+- Keep icon sizing and alignment consistent with nearby text/components; prefer shared utility classes or existing component patterns.
+- Decorative icons should be visually subtle; action/state icons should remain clear and recognizable.
+
+## Do / don't
+
+```text
+DO: Use Heroicons via ng-icons for common UI actions (search, edit, delete, navigation).
+DO: Verify icon names in the ng-icons browser before committing.
+
+DON'T: Mix unrelated icon packs for identical actions in the same feature.
+DON'T: Hardcode ad-hoc icon naming assumptions without checking the official list.
+```
