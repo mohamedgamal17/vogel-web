@@ -22,6 +22,24 @@ Colocate by responsibility:
 - `<feature>.routes.ts` — route definitions; load this file lazily from the root router
 - Optional: `models/`, `data-access/` for types and API layers
 
+## Data access responsibility (required)
+
+- **Pages (`pages/` or `containers/`)** orchestrate data:
+  - Read route params/query params.
+  - Call **feature services** to load/save data.
+  - Shape service results into view-model state and pass data down via `@Input()`.
+  - Receive user intents via `@Output()` and decide what to do (call service, navigate, etc.).
+
+- **Feature services (`services/`)** own API requests:
+  - Contain all `HttpClient` usage and endpoint knowledge for the feature.
+  - Centralize typing, mapping, and error handling for API interactions.
+
+- **Presentational components (`components/`)** only preview/render:
+  - Must not import/inject `HttpClient`, feature services, or route services.
+  - Must not make API requests; emit events instead.
+
+See also: `.cursor/rules/page-components-data-access.mdc`
+
 ## Routing
 
 - Prefer **lazy loading**: `app.routes.ts` should reference `loadChildren` (or `loadComponent` chains) that point into `features/<name>/<feature>.routes.ts`, not list every child route inline in the root file.

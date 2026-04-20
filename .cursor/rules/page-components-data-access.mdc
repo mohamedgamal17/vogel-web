@@ -1,0 +1,56 @@
+---
+description: Enforce that routed pages orchestrate data via feature services, while presentational components only preview inputs and emit intents (no API requests).
+globs: src/app/features/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Pages fetch; components preview (no API requests in components)
+
+## Rule
+
+Within each feature under `src/app/features/<feature>/`:
+
+- **Routed page components** (in `pages/` or `containers/`) are the *only UI layer* allowed to trigger data loads/saves.
+- **Feature services** (in `services/`) are the *only place* allowed to perform HTTP/API requests.
+- **Presentational components** (in `components/`) are render-only and must not fetch data.
+
+## Responsibilities
+
+### Pages (`pages/**` / `containers/**`)
+
+- Read route params/query params.
+- Call feature services for:
+  - loading data
+  - saving/mutating data
+  - retry/refresh workflows
+- Own view state (loading/error/empty).
+- Pass data down via `@Input()` and handle events via `@Output()`.
+
+### Services (`services/**`)
+
+- Own `HttpClient` usage and endpoint knowledge.
+- Return typed results (usually `Observable<T>`).
+- Centralize mapping and error handling.
+
+### Presentational components (`components/**`)
+
+- Accept data via `@Input()`.
+- Emit user intents via `@Output()` (or callbacks).
+- Must not:
+  - inject `HttpClient`
+  - inject feature services (`*.service.ts`)
+  - use route services (`ActivatedRoute`, `Router`) for data orchestration
+  - perform API requests
+
+## Do / don’t
+
+```text
+✅ Page: inject OrdersService; call ordersService.loadOrder(id)
+✅ Service: inject HttpClient; implement loadOrder(id): Observable<Order>
+✅ Component: <app-order-preview [order]="order" (delete)="delete.emit()">
+
+❌ Component: inject HttpClient or call /api/* directly
+❌ Component: inject OrdersService and call loadOrder()
+❌ Component: subscribe to route params to fetch data
+```
+
