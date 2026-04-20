@@ -1,0 +1,31 @@
+---
+description: Angular Material + Tailwind division of labor, theme files, and official docs via Browser
+globs: src/**/*.{html,css,scss}
+alwaysApply: false
+---
+
+# Styling: Angular Material + Tailwind
+
+## Division of responsibility
+
+- **Angular Material** — interactive, accessible UI primitives (buttons, form fields, dialogs, tables, navigation patterns). Follow current APIs and patterns from [Angular Material](https://material.angular.dev/).
+- **Tailwind CSS** — layout, spacing, responsive behavior, and utility-level typography when it does not fight Material component internals. Use [Tailwind CSS documentation](https://tailwindcss.com/docs) as the source of truth for utilities and v4 usage.
+
+## Global styles in this project
+
+- **Material theming:** `src/material-theme.scss` — prefer Material 3 / theme tokens here instead of ad-hoc overrides scattered in components.
+- **Tailwind entry:** `src/styles.css` — contains `@import 'tailwindcss';` and other global utilities.
+- **Load order:** `angular.json` lists `material-theme.scss` **before** `styles.css`. Keep that order; put new global theme variables in the theme file and Tailwind-related globals in `styles.css` unless they are Material-specific.
+
+## Conflict avoidance
+
+- Avoid piling Tailwind classes onto Material components in ways that break their internal layout or focus rings.
+- Do not rely on brittle `.mat-*` overrides; theme through `material-theme.scss` when possible.
+- `::ng-deep` is a last resort — if used, add a short comment explaining why.
+
+## Documentation and Browser MCP
+
+When unsure about component APIs, theming, or Tailwind class behavior, **open the official docs with the Browser MCP** instead of guessing:
+
+- [https://material.angular.dev/](https://material.angular.dev/)
+- [https://tailwindcss.com/docs](https://tailwindcss.com/docs)

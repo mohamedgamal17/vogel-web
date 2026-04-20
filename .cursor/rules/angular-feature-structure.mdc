@@ -1,0 +1,55 @@
+---
+description: Feature-based folder layout under src/app (features, core, shared) and lazy routing
+globs: src/app/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Angular feature folder structure
+
+## Where code lives
+
+- **Features:** `src/app/features/<feature-kebab>/` — all new UI and domain logic that belongs to one product area (e.g. `features/inventory/`).
+- **Core:** `src/app/core/` — app-wide singletons only (auth session, API base URL, HTTP interceptors, global guards).
+- **Shared:** `src/app/shared/` — reusable, feature-agnostic building blocks (dumb components, pipes, directives).
+
+## Inside a feature
+
+Colocate by responsibility:
+
+- `components/` — presentational pieces used only in this feature
+- `pages/` or `containers/` — routed views / smart containers
+- `services/` — feature-scoped state and API calls
+- `<feature>.routes.ts` — route definitions; load this file lazily from the root router
+- Optional: `models/`, `data-access/` for types and API layers
+
+## Routing
+
+- Prefer **lazy loading**: `app.routes.ts` should reference `loadChildren` (or `loadComponent` chains) that point into `features/<name>/<feature>.routes.ts`, not list every child route inline in the root file.
+
+## Naming
+
+- Folders and file names: **kebab-case** (Angular CLI default).
+- Component selectors: keep the **`app`** prefix (project `prefix` in `angular.json`).
+
+## Do / don’t
+
+```text
+✅ src/app/features/orders/pages/order-list/order-list.ts
+✅ src/app/features/orders/orders.routes.ts
+
+❌ src/app/order-list.ts  (feature UI at app root)
+❌ src/app/random-service.ts  (belongs in core, shared, or a feature)
+```
+
+```mermaid
+flowchart TB
+  app[src/app]
+  core[core]
+  shared[shared]
+  features[features]
+  featN[feature_name]
+  app --> core
+  app --> shared
+  app --> features
+  features --> featN
+```
