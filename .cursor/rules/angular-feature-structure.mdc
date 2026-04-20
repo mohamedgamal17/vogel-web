@@ -25,6 +25,7 @@ Colocate by responsibility:
 ## Routing
 
 - Prefer **lazy loading**: `app.routes.ts` should reference `loadChildren` (or `loadComponent` chains) that point into `features/<name>/<feature>.routes.ts`, not list every child route inline in the root file.
+- Feature route entry files should expose a **registration helper** and lazy pages via `loadComponent`. See: `.cursor/rules/feature-route-registration-lazy-load.mdc`
 
 ## Naming
 

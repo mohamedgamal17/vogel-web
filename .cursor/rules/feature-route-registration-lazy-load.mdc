@@ -1,0 +1,78 @@
+---
+description: Enforce per-feature route registration helpers and lazy-loaded routed pages
+globs: src/app/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Feature route registration + lazy routed pages
+
+## Feature route entrypoint is required
+
+Each feature must provide a single routing entry file:
+
+- `src/app/features/<feature-kebab>/<feature-kebab>.routes.ts`
+
+This file is the **only** file the root router should import/lazy-load for that feature.
+
+## Export a registration helper (required)
+
+In `<feature>.routes.ts`, export a helper function:
+
+- `export function provide<FeaturePascal>Routes(): Routes` (or `Route[]`)
+
+Example:
+
+```ts
+import type { Routes } from '@angular/router';
+
+export function provideLandingRoutes(): Routes {
+  return [
+    {
+      path: '',
+      pathMatch: 'full',
+      loadComponent: () =>
+        import('./pages/landing-page/landing-page').then((m) => m.LandingPage),
+    },
+  ];
+}
+```
+
+## Always lazy-load routed pages/components
+
+Inside feature routes:
+
+- Use `loadComponent` for routed pages/components.
+- Do **not** use eager `component:` for routed pages.
+
+## Root router stays thin (feature-level lazy loading)
+
+In `src/app/app.routes.ts`:
+
+- Use `loadChildren` to lazy-load the feature entry file.
+- The lazy import should return the feature registration helper result.
+
+Example:
+
+```ts
+import type { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/landing/landing.routes').then((m) => m.provideLandingRoutes()),
+  },
+];
+```
+
+## Do / don’t
+
+```text
+DO: export provide<Feature>Routes() from <feature>.routes.ts
+DO: use loadComponent for every routed page
+DO: loadChildren from app.routes.ts into feature route entry files
+
+DON'T: export bare <FEATURE>_ROUTES constants as the primary API
+DON'T: import page components into routes just to set `component:`
+DON'T: list every feature route inline in app.routes.ts
+```
