@@ -6,4 +6,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/landing/landing.routes').then((m) => m.provideLandingRoutes()),
   },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./features/home/home.routes').then((m) => m.provideHomeRoutes()),
+  },
 ];

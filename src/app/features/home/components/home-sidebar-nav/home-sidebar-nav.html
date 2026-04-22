@@ -1,0 +1,15 @@
+<mat-card class="side-card">
+  <mat-card-header>
+    <mat-card-title>Navigation</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-nav-list>
+      @for (item of menuItems; track item.label) {
+        <a mat-list-item href="javascript:void(0)" class="nav-item" [class.nav-item-active]="item.active">
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-card-content>
+</mat-card>

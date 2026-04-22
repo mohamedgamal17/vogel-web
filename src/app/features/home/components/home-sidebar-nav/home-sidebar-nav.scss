@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.side-card {
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 1rem;
+}
+
+.nav-item {
+  border-radius: 0.8rem;
+}
+
+.nav-item-active {
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+  color: var(--mat-sys-primary);
+}

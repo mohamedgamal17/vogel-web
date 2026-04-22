@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.home-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 4.5rem;
+  background: color-mix(in srgb, var(--mat-sys-surface-container-low) 85%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.brand-badge {
+  color: var(--mat-sys-primary);
+  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+}
+
+@media (max-width: 767px) {
+  .home-toolbar {
+    height: auto;
+    min-height: 4.5rem;
+  }
+}

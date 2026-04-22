@@ -1,0 +1,29 @@
+<mat-card class="side-card">
+  <mat-card-header>
+    <mat-card-title>Who to follow</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="space-y-2">
+    @for (person of suggestions; track person.handle) {
+      <div class="suggestion-row">
+        <div>
+          <p class="m-0 text-sm font-medium">{{ person.name }}</p>
+          <p class="m-0 text-xs opacity-70">{{ person.handle }}</p>
+        </div>
+        <button mat-stroked-button type="button">Follow</button>
+      </div>
+    }
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="side-card">
+  <mat-card-header>
+    <mat-card-title>Trending</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex flex-wrap gap-2">
+      @for (trend of trends; track trend) {
+        <mat-chip>{{ trend }}</mat-chip>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

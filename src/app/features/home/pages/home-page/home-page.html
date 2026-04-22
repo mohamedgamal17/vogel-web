@@ -1,0 +1,32 @@
+<app-home-topbar />
+
+<main class="mx-auto grid max-w-7xl gap-4 px-4 py-6 md:grid-cols-12 md:gap-6 md:px-6">
+  <aside class="md:col-span-3">
+    <app-home-sidebar-nav [menuItems]="feedService.menuItems" />
+  </aside>
+
+  <section class="md:col-span-6">
+    <app-home-feed-list [posts]="feedService.posts" />
+  </section>
+
+  <aside class="md:col-span-3">
+    <app-home-right-rail [suggestions]="feedService.suggestions" [trends]="feedService.trends" />
+  </aside>
+</main>
+
+<app-home-composer-panel
+  [isComposerPanelOpen]="composerService.isComposerPanelOpen"
+  [draftPostText]="composerService.draftPostText"
+  [composerMediaPreviews]="composerService.composerMediaPreviews"
+  (draftPostTextChange)="updateDraftPostText($event)"
+  (mediaFilesSelected)="onMediaFilesSelected($event)"
+  (clearDraft)="clearComposerDraft()"
+  (removeMedia)="removeComposerMedia($event)"
+/>
+
+<app-home-quick-actions-fab
+  [quickActions]="feedService.quickActions"
+  [isComposerMenuOpen]="composerService.isComposerMenuOpen"
+  (toggleComposerMenu)="toggleComposerMenu()"
+  (openComposerFromAction)="openComposerFromAction($event)"
+/>
