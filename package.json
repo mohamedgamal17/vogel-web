@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "eslint .",
+    "lint:tokens": "node ./scripts/enforce-design-tokens.mjs",
+    "lint:all": "npm run lint && npm run lint:tokens",
     "test": "ng test"
   },
   "private": true,

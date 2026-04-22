@@ -1,0 +1,34 @@
+---
+description: Enforce brand-first app design tokens and restrict direct Angular Material token usage in feature styles.
+globs: src/**/*.{scss,css,html}
+alwaysApply: true
+---
+
+# Design system tokens standard
+
+## Source of truth
+
+- App styling tokens are the primary API and must be defined under `src/styles/design-tokens.css`.
+- Token families include:
+  - colors (`--app-color-*`)
+  - typography (`--app-font-*`, `--app-type-*`)
+  - spacing (`--app-space-*`)
+  - radius/borders (`--app-radius-*`, `--app-border-*`)
+  - shadows (`--app-shadow-*`)
+
+## Angular Material integration
+
+- `src/material-theme.scss` is the only theme bridge for Angular Material token integration.
+- Material/MDC override variables (`--mat-sys-*`, `--mdc-*`) are allowed only in `src/material-theme.scss`.
+- Feature, layout, and component styles must consume app tokens (`--app-*`) instead of direct third-party tokens.
+
+## Component styling requirements
+
+- In `src/app/**`, avoid hardcoded spacing/radius/shadow values when a token exists.
+- Use semantic app tokens (for example `--app-color-primary-soft`) instead of one-off color math whenever possible.
+- Keep Material component overrides narrow and reusable via global bridge classes in `src/material-theme.scss`.
+
+## Tailwind usage
+
+- Keep Tailwind theme values aligned to app tokens through `src/styles.css` `@theme inline`.
+- Utility classes and SCSS should reference the same token scales for spacing, radius, color, typography, and shadows.

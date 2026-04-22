@@ -1,5 +1,3 @@
-.cta-login-on-primary {
-  --mdc-filled-button-container-color: var(--mat-sys-on-primary);
-  --mdc-filled-button-label-text-color: var(--mat-sys-primary);
-  --mat-filled-button-state-layer-color: var(--mat-sys-primary);
+:host {
+  display: block;
 }

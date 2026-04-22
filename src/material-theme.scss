@@ -19,6 +19,30 @@ html {
   );
 }
 
+:root {
+  --mat-sys-primary: var(--app-color-primary);
+  --mat-sys-on-primary: var(--app-color-on-primary);
+  --mat-sys-surface: var(--app-color-surface);
+  --mat-sys-surface-container-low: var(--app-color-surface-soft);
+  --mat-sys-on-surface: var(--app-color-on-surface);
+  --mat-sys-outline: var(--app-color-outline);
+  --mat-sys-outline-variant: var(--app-color-outline-strong);
+
+  --app-motion-standard: 180ms ease;
+}
+
+.cta-login-on-primary {
+  --mdc-filled-button-container-color: var(--app-color-on-primary);
+  --mdc-filled-button-label-text-color: var(--app-color-primary);
+  --mat-filled-button-state-layer-color: var(--app-color-primary);
+}
+
+.final-cta-login-button {
+  --mdc-filled-button-container-color: var(--app-color-inverse-surface);
+  --mdc-filled-button-label-text-color: var(--app-color-inverse-on-surface);
+  --mat-filled-button-state-layer-color: var(--app-color-primary);
+}
+
 body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
@@ -28,9 +52,11 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
+  background-color: var(--app-color-surface);
+  color: var(--app-color-on-surface);
+  font-family: var(--app-font-family-sans);
+  font-size: var(--app-type-body-lg);
+  font-weight: var(--app-font-weight-regular);
 
   // Reset the user agent margin.
   margin: 0;

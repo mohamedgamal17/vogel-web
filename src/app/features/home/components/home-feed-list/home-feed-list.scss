@@ -5,18 +5,18 @@
 :host {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--app-space-4);
 }
 
 .post-card {
-  border: 1px solid var(--mat-sys-outline-variant);
-  border-radius: 1rem;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  border: var(--app-border-subtle);
+  border-radius: var(--app-radius-lg);
+  transition: transform var(--app-motion-standard), box-shadow var(--app-motion-standard);
 }
 
 .post-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--mat-sys-level2);
+  box-shadow: var(--app-shadow-2);
 }
 
 .avatar {
@@ -25,21 +25,21 @@
   width: 2.5rem;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  font-weight: 700;
-  color: var(--mat-sys-primary);
-  background: color-mix(in srgb, var(--mat-sys-primary) 16%, transparent);
+  border-radius: var(--app-radius-pill);
+  font-weight: var(--app-font-weight-bold);
+  color: var(--app-color-primary);
+  background: var(--app-color-primary-soft-strong);
 }
 
 .post-action-btn {
-  border-radius: 999px;
+  border-radius: var(--app-radius-pill);
 }
 
 .post-media {
   overflow: hidden;
-  border-radius: 0.85rem;
-  border: 1px solid var(--mat-sys-outline-variant);
-  background: var(--mat-sys-surface-container-low);
+  border-radius: var(--app-radius-md);
+  border: var(--app-border-subtle);
+  background: var(--app-color-surface-soft);
 }
 
 .post-media img,

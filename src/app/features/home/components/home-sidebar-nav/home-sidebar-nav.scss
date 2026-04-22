@@ -3,15 +3,15 @@
 }
 
 .side-card {
-  border: 1px solid var(--mat-sys-outline-variant);
-  border-radius: 1rem;
+  border: var(--app-border-subtle);
+  border-radius: var(--app-radius-lg);
 }
 
 .nav-item {
-  border-radius: 0.8rem;
+  border-radius: var(--app-radius-md);
 }
 
 .nav-item-active {
-  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
-  color: var(--mat-sys-primary);
+  background: var(--app-color-primary-soft);
+  color: var(--app-color-primary);
 }

@@ -1,3 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@theme inline {
+  --color-primary: var(--app-color-primary);
+  --color-primary-soft: var(--app-color-primary-soft);
+  --color-surface: var(--app-color-surface);
+  --color-surface-soft: var(--app-color-surface-soft);
+  --color-on-surface: var(--app-color-on-surface);
+  --color-outline: var(--app-color-outline);
+
+  --font-sans: var(--app-font-family-sans);
+
+  --spacing-1: var(--app-space-1);
+  --spacing-2: var(--app-space-2);
+  --spacing-3: var(--app-space-3);
+  --spacing-4: var(--app-space-4);
+  --spacing-5: var(--app-space-5);
+  --spacing-6: var(--app-space-6);
+  --spacing-8: var(--app-space-8);
+
+  --radius-sm: var(--app-radius-sm);
+  --radius-md: var(--app-radius-md);
+  --radius-lg: var(--app-radius-lg);
+  --radius-full: var(--app-radius-pill);
+
+  --shadow-sm: var(--app-shadow-1);
+  --shadow-md: var(--app-shadow-2);
+  --shadow-lg: var(--app-shadow-3);
+}

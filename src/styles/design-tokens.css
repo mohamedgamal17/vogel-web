@@ -1,0 +1,70 @@
+:root {
+  /* Color primitives */
+  --app-color-brand-50: #fdf2f8;
+  --app-color-brand-100: #fce7f3;
+  --app-color-brand-500: #e11d73;
+  --app-color-brand-600: #c2185f;
+  --app-color-brand-700: #a0134f;
+  --app-color-accent-500: #6d28d9;
+  --app-color-neutral-0: #ffffff;
+  --app-color-neutral-50: #f8fafc;
+  --app-color-neutral-100: #f1f5f9;
+  --app-color-neutral-200: #e2e8f0;
+  --app-color-neutral-300: #cbd5e1;
+  --app-color-neutral-700: #334155;
+  --app-color-neutral-900: #0f172a;
+
+  /* Semantic colors */
+  --app-color-primary: var(--app-color-brand-600);
+  --app-color-primary-strong: var(--app-color-brand-700);
+  --app-color-primary-soft: color-mix(in srgb, var(--app-color-primary) 14%, transparent);
+  --app-color-primary-soft-strong: color-mix(in srgb, var(--app-color-primary) 18%, transparent);
+  --app-color-on-primary: var(--app-color-neutral-0);
+  --app-color-surface: var(--app-color-neutral-0);
+  --app-color-surface-soft: var(--app-color-neutral-50);
+  --app-color-surface-muted: var(--app-color-neutral-100);
+  --app-color-on-surface: var(--app-color-neutral-900);
+  --app-color-on-surface-muted: var(--app-color-neutral-700);
+  --app-color-outline: var(--app-color-neutral-300);
+  --app-color-outline-strong: var(--app-color-neutral-200);
+  --app-color-inverse-surface: var(--app-color-neutral-900);
+  --app-color-inverse-on-surface: var(--app-color-neutral-0);
+  --app-color-backdrop-soft: color-mix(in srgb, var(--app-color-surface-soft) 85%, transparent);
+
+  /* Typography */
+  --app-font-family-sans: 'Roboto', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --app-font-weight-regular: 400;
+  --app-font-weight-medium: 500;
+  --app-font-weight-semibold: 600;
+  --app-font-weight-bold: 700;
+  --app-type-body-sm: 0.75rem;
+  --app-type-body-md: 0.875rem;
+  --app-type-body-lg: 1rem;
+  --app-type-title-sm: 1.125rem;
+  --app-type-title-md: 1.25rem;
+  --app-type-title-lg: 1.5rem;
+
+  /* Spacing scale */
+  --app-space-1: 0.25rem;
+  --app-space-2: 0.5rem;
+  --app-space-3: 0.75rem;
+  --app-space-4: 1rem;
+  --app-space-5: 1.25rem;
+  --app-space-6: 1.5rem;
+  --app-space-7: 1.75rem;
+  --app-space-8: 2rem;
+
+  /* Radius / borders */
+  --app-radius-sm: 0.5rem;
+  --app-radius-md: 0.75rem;
+  --app-radius-lg: 1rem;
+  --app-radius-pill: 999px;
+  --app-border-thin: 1px;
+  --app-border-default: var(--app-border-thin) solid var(--app-color-outline);
+  --app-border-subtle: var(--app-border-thin) solid var(--app-color-outline-strong);
+
+  /* Shadows */
+  --app-shadow-1: 0 4px 12px rgb(15 23 42 / 0.08);
+  --app-shadow-2: 0 10px 24px rgb(15 23 42 / 0.14);
+  --app-shadow-3: 0 16px 32px rgb(15 23 42 / 0.18);
+}

@@ -7,14 +7,14 @@
   top: 0;
   z-index: 10;
   height: 4.5rem;
-  background: color-mix(in srgb, var(--mat-sys-surface-container-low) 85%, transparent);
+  background: var(--app-color-backdrop-soft);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--mat-sys-outline-variant);
+  border-bottom: var(--app-border-subtle);
 }
 
 .brand-badge {
-  color: var(--mat-sys-primary);
-  background: color-mix(in srgb, var(--mat-sys-primary) 14%, transparent);
+  color: var(--app-color-primary);
+  background: var(--app-color-primary-soft);
 }
 
 @media (max-width: 767px) {

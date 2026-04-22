@@ -4,24 +4,24 @@
 
 .fab-cluster {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  right: var(--app-space-6);
+  bottom: var(--app-space-6);
   z-index: 30;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.75rem;
+  gap: var(--app-space-3);
 }
 
 .fab-actions {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.5rem;
+  gap: var(--app-space-2);
   opacity: 0;
   transform: translateY(10px) scale(0.98);
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: opacity var(--app-motion-standard), transform var(--app-motion-standard);
 }
 
 .fab-actions-open {
@@ -31,20 +31,20 @@
 }
 
 .fab-action-btn {
-  border-radius: 999px;
+  border-radius: var(--app-radius-pill);
   min-width: 8rem;
   justify-content: flex-start;
-  box-shadow: var(--mat-sys-level2);
+  box-shadow: var(--app-shadow-2);
 }
 
 .fab-main {
-  box-shadow: var(--mat-sys-level3);
+  box-shadow: var(--app-shadow-3);
 }
 
 @media (max-width: 767px) {
   .fab-cluster {
-    right: 1rem;
-    bottom: 1rem;
+    right: var(--app-space-4);
+    bottom: var(--app-space-4);
   }
 
   .fab-action-btn {

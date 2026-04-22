@@ -29,3 +29,7 @@ When unsure about component APIs, theming, or Tailwind class behavior, **open th
 
 - [https://material.angular.dev/](https://material.angular.dev/)
 - [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+
+## Related local standard
+
+- Follow `.cursor/rules/design-system-tokens.mdc` for the brand-first app token standard.
