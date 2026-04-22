@@ -23,6 +23,8 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './landing-page.scss',
 })
 export class LandingPage {
+  readonly currentYear = new Date().getFullYear();
+
 
   constructor(private authService : AuthService){}
 
