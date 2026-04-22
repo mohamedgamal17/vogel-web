@@ -6,6 +6,7 @@ import { LandingHeaderComponent } from '../../components/landing-header/landing-
 import { LandingHeroComponent } from '../../components/landing-hero/landing-hero';
 import { LandingHowItWorksComponent } from '../../components/landing-how-it-works/landing-how-it-works';
 import { LandingTrustStripComponent } from '../../components/landing-trust-strip/landing-trust-strip';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-landing-page',
@@ -22,15 +23,10 @@ import { LandingTrustStripComponent } from '../../components/landing-trust-strip
   styleUrl: './landing-page.scss',
 })
 export class LandingPage {
-  /** Display year in footer (avoid `new Date()` in template). */
-  readonly currentYear = new Date().getFullYear();
+
+  constructor(private authService : AuthService){}
 
   onLogin(): void {
-    this.startAuthFlow();
-  }
-
-  private startAuthFlow(): void {
-    // Temporary integration contract until Auth0 SDK wiring lands.
-    window.dispatchEvent(new CustomEvent('vogel-auth-cta', { detail: { intent: 'login' } }));
+    this.authService.loginWithRedirect();
   }
 }
