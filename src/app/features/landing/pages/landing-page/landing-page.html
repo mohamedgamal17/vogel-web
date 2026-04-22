@@ -1,17 +1,15 @@
-<div class="flex min-h-screen flex-col bg-[var(--mat-sys-surface)] text-[var(--mat-sys-on-surface)]">
-  <app-landing-header (login)="onLogin()" />
+<app-landing-header (login)="onLogin()" />
 
-  <main id="main-content">
-    <app-landing-hero (login)="onLogin()" />
+<main id="main-content">
+  <app-landing-hero (login)="onLogin()" />
 
-    <app-landing-trust-strip />
+  <app-landing-trust-strip />
 
-    <app-landing-feature-highlights />
+  <app-landing-feature-highlights />
 
-    <app-landing-how-it-works />
+  <app-landing-how-it-works />
 
-    <app-landing-final-cta (login)="onLogin()" />
-  </main>
+  <app-landing-final-cta (login)="onLogin()" />
+</main>
 
-  <app-landing-footer [currentYear]="currentYear" />
-</div>
+<app-landing-footer [currentYear]="currentYear" />
