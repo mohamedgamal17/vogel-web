@@ -1,31 +1,33 @@
 import { Component, OnDestroy } from '@angular/core';
-import { HomeComposerPanelComponent } from '../../components/home-composer-panel/home-composer-panel';
-import { HomeFeedListComponent } from '../../components/home-feed-list/home-feed-list';
 import { HomeQuickActionsFabComponent } from '../../components/home-quick-actions-fab/home-quick-actions-fab';
 import { HomeRightRailComponent } from '../../components/home-right-rail/home-right-rail';
 import { HomeSidebarNavComponent } from '../../components/home-sidebar-nav/home-sidebar-nav';
 import { HomeTopbarComponent } from '../../components/home-topbar/home-topbar';
-import { HomeComposerService } from '../../services/home-composer.service';
 import { HomeFeedService } from '../../services/home-feed.service';
+import { PostComposerPanelComponent } from '../../../posts/components/post-composer-panel/post-composer-panel';
+import { PostFeedListComponent } from '../../../posts/components/post-feed-list/post-feed-list';
+import { PostComposerService } from '../../../posts/services/post-composer.service';
+import { PostsFeedService } from '../../../posts/services/posts-feed.service';
 
 @Component({
   selector: 'app-home-page',
   imports: [
     HomeTopbarComponent,
     HomeSidebarNavComponent,
-    HomeFeedListComponent,
+    PostFeedListComponent,
     HomeRightRailComponent,
-    HomeComposerPanelComponent,
+    PostComposerPanelComponent,
     HomeQuickActionsFabComponent,
   ],
-  providers: [HomeFeedService, HomeComposerService],
+  providers: [HomeFeedService, PostsFeedService, PostComposerService],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
 export class HomePage implements OnDestroy {
   constructor(
     readonly feedService: HomeFeedService,
-    readonly composerService: HomeComposerService
+    readonly postsFeedService: PostsFeedService,
+    readonly composerService: PostComposerService
   ) {}
 
   toggleComposerMenu(): void {

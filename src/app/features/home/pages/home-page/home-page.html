@@ -6,7 +6,7 @@
   </aside>
 
   <section class="md:col-span-6">
-    <app-home-feed-list [posts]="feedService.posts" />
+    <app-post-feed-list [posts]="postsFeedService.posts" />
   </section>
 
   <aside class="md:col-span-3">
@@ -14,7 +14,7 @@
   </aside>
 </main>
 
-<app-home-composer-panel
+<app-post-composer-panel
   [isComposerPanelOpen]="composerService.isComposerPanelOpen"
   [draftPostText]="composerService.draftPostText"
   [composerMediaPreviews]="composerService.composerMediaPreviews"

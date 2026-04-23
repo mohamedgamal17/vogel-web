@@ -4,10 +4,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { ComposerMediaPreview } from '../../models/home-composer.model';
+import { PostComposerMediaPreview } from '../../models/post-composer.model';
 
 @Component({
-  selector: 'app-home-composer-panel',
+  selector: 'app-post-composer-panel',
   imports: [
     MatCardModule,
     MatFormFieldModule,
@@ -15,13 +15,13 @@ import { ComposerMediaPreview } from '../../models/home-composer.model';
     MatButtonModule,
     MatIconModule,
   ],
-  templateUrl: './home-composer-panel.html',
-  styleUrl: './home-composer-panel.scss',
+  templateUrl: './post-composer-panel.html',
+  styleUrl: './post-composer-panel.scss',
 })
-export class HomeComposerPanelComponent {
+export class PostComposerPanelComponent {
   @Input({ required: true }) isComposerPanelOpen = false;
   @Input({ required: true }) draftPostText = '';
-  @Input({ required: true }) composerMediaPreviews: ComposerMediaPreview[] = [];
+  @Input({ required: true }) composerMediaPreviews: PostComposerMediaPreview[] = [];
 
   @Output() draftPostTextChange = new EventEmitter<string>();
   @Output() mediaFilesSelected = new EventEmitter<FileList | null>();

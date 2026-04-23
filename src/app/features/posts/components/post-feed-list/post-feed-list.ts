@@ -3,14 +3,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { HomeFeedPost } from '../../models/home-feed-post.model';
+import { Post } from '../../models/post.model';
 
 @Component({
-  selector: 'app-home-feed-list',
+  selector: 'app-post-feed-list',
   imports: [MatCardModule, MatButtonModule, MatDividerModule, MatIconModule],
-  templateUrl: './home-feed-list.html',
-  styleUrl: './home-feed-list.scss',
+  templateUrl: './post-feed-list.html',
+  styleUrl: './post-feed-list.scss',
 })
-export class HomeFeedListComponent {
-  @Input({ required: true }) posts: HomeFeedPost[] = [];
+export class PostFeedListComponent {
+  @Input({ required: true }) posts: Post[] = [];
 }

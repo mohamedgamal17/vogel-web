@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ComposerMediaPreview } from '../models/home-composer.model';
+import { PostComposerMediaPreview } from '../models/post-composer.model';
 
 @Injectable()
-export class HomeComposerService {
+export class PostComposerService {
   isComposerMenuOpen = false;
   isComposerPanelOpen = false;
   draftPostText = '';
-  readonly composerMediaPreviews: ComposerMediaPreview[] = [];
+  readonly composerMediaPreviews: PostComposerMediaPreview[] = [];
 
   toggleComposerMenu(): void {
     this.isComposerMenuOpen = !this.isComposerMenuOpen;

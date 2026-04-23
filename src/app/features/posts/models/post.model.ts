@@ -1,11 +1,11 @@
-export type HomePostMedia = {
+export type PostMedia = {
   type: 'image' | 'video';
   src: string;
   alt?: string;
   poster?: string;
 };
 
-export type HomeFeedPost = {
+export type Post = {
   id: number;
   authorName: string;
   authorHandle: string;
@@ -14,5 +14,5 @@ export type HomeFeedPost = {
   likes: number;
   comments: number;
   shares: number;
-  media?: HomePostMedia;
+  media?: PostMedia;
 };
