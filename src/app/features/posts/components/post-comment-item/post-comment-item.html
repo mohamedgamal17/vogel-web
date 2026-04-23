@@ -1,0 +1,46 @@
+<article class="comment-item">
+  <div class="comment-header">
+    <div>
+      <p class="m-0 text-sm font-semibold">{{ comment.authorName }}</p>
+      <p class="m-0 text-xs opacity-70">{{ comment.authorHandle }} · {{ comment.publishedAt }}</p>
+    </div>
+    <button mat-button type="button" (click)="toggleReplyComposer()">Reply</button>
+  </div>
+
+  <p class="m-0 mt-2 text-sm leading-6">
+    {{ comment.content }}
+  </p>
+
+  @if (isReplyComposerOpen) {
+    <div class="reply-composer mt-3">
+      <mat-form-field class="reply-input" subscriptSizing="dynamic">
+        <mat-label>Write a reply</mat-label>
+        <textarea matInput rows="1" [(ngModel)]="replyContent" placeholder="Reply..."></textarea>
+      </mat-form-field>
+      <div class="reply-actions">
+        <button mat-flat-button type="button" [disabled]="!canSubmitReply" (click)="submitReply()">
+          Reply
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (comment.replies.length > 0) {
+    <div class="replies-list mt-3">
+      @for (reply of comment.replies; track reply.id) {
+        <div class="reply-item">
+          <div class="reply-item-header">
+            <div>
+              <p class="m-0 text-sm font-semibold">{{ reply.authorName }}</p>
+              <p class="m-0 text-xs opacity-70">{{ reply.authorHandle }} · {{ reply.publishedAt }}</p>
+            </div>
+            <button mat-button type="button" class="subreply-btn" (click)="replyToSubcomment(reply.authorHandle)">
+              Reply
+            </button>
+          </div>
+          <p class="m-0 mt-2 text-sm leading-6">{{ reply.content }}</p>
+        </div>
+      }
+    </div>
+  }
+</article>

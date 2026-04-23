@@ -54,6 +54,14 @@ export class HomePage implements OnDestroy {
     this.composerService.clearComposerDraft();
   }
 
+  createComment(event: { postId: number; content: string }): void {
+    this.postsFeedService.addComment(event.postId, event.content);
+  }
+
+  createReply(event: { postId: number; commentId: number; content: string }): void {
+    this.postsFeedService.addReply(event.postId, event.commentId, event.content);
+  }
+
   ngOnDestroy(): void {
     this.composerService.dispose();
   }

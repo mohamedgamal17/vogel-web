@@ -5,6 +5,23 @@ export type PostMedia = {
   poster?: string;
 };
 
+export type PostCommentReply = {
+  id: number;
+  authorName: string;
+  authorHandle: string;
+  publishedAt: string;
+  content: string;
+};
+
+export type PostComment = {
+  id: number;
+  authorName: string;
+  authorHandle: string;
+  publishedAt: string;
+  content: string;
+  replies: PostCommentReply[];
+};
+
 export type Post = {
   id: number;
   authorName: string;
@@ -12,7 +29,7 @@ export type Post = {
   publishedAt: string;
   content: string;
   likes: number;
-  comments: number;
+  comments: PostComment[];
   shares: number;
   media?: PostMedia;
 };

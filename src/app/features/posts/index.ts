@@ -1,4 +1,7 @@
 export * from './components/post-composer-panel/post-composer-panel';
+export * from './components/post-comment-item/post-comment-item';
+export * from './components/post-comments/post-comments';
+export * from './components/post/post';
 export * from './components/post-feed-list/post-feed-list';
 export * from './models/post-composer.model';
 export * from './models/post.model';

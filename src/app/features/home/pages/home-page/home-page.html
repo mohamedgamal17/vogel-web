@@ -6,7 +6,11 @@
   </aside>
 
   <section class="md:col-span-6">
-    <app-post-feed-list [posts]="postsFeedService.posts" />
+    <app-post-feed-list
+      [posts]="postsFeedService.posts"
+      (createComment)="createComment($event)"
+      (createReply)="createReply($event)"
+    />
   </section>
 
   <aside class="md:col-span-3">
