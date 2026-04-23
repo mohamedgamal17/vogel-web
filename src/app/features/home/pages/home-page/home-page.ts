@@ -30,12 +30,12 @@ export class HomePage implements OnDestroy {
     readonly composerService: PostComposerService
   ) {}
 
-  toggleComposerMenu(): void {
-    this.composerService.toggleComposerMenu();
+  toggleComposer(): void {
+    this.composerService.toggleComposer();
   }
 
-  openComposerFromAction(actionLabel: string): void {
-    this.composerService.openComposerFromAction(actionLabel);
+  closeComposer(): void {
+    this.composerService.closeComposer();
   }
 
   updateDraftPostText(value: string): void {

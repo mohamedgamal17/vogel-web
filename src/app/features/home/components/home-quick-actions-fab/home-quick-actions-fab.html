@@ -1,20 +1,11 @@
 <div class="fab-cluster">
-  <div class="fab-actions" [class.fab-actions-open]="isComposerMenuOpen">
-    @for (action of quickActions; track action.label) {
-      <button mat-flat-button type="button" class="fab-action-btn" (click)="openComposerFromAction.emit(action.label)">
-        <mat-icon>{{ action.icon }}</mat-icon>
-        <span>{{ action.label }}</span>
-      </button>
-    }
-  </div>
-
   <button
     mat-fab
     type="button"
     class="fab-main"
-    aria-label="Toggle post actions"
-    (click)="toggleComposerMenu.emit()"
+    [attr.aria-label]="isComposerPanelOpen ? 'Close create post modal' : 'Create post'"
+    (click)="toggleComposer.emit()"
   >
-    <mat-icon>{{ isComposerMenuOpen ? 'close' : 'add' }}</mat-icon>
+    <mat-icon>{{ isComposerPanelOpen ? 'close' : 'add' }}</mat-icon>
   </button>
 </div>

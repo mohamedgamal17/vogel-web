@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HomeQuickAction } from '../../models/home-navigation.model';
 
 @Component({
   selector: 'app-home-quick-actions-fab',
@@ -10,9 +9,7 @@ import { HomeQuickAction } from '../../models/home-navigation.model';
   styleUrl: './home-quick-actions-fab.scss',
 })
 export class HomeQuickActionsFabComponent {
-  @Input({ required: true }) quickActions: HomeQuickAction[] = [];
-  @Input({ required: true }) isComposerMenuOpen = false;
+  @Input({ required: true }) isComposerPanelOpen = false;
 
-  @Output() toggleComposerMenu = new EventEmitter<void>();
-  @Output() openComposerFromAction = new EventEmitter<string>();
+  @Output() toggleComposer = new EventEmitter<void>();
 }

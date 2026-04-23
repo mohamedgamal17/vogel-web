@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   HomeNavItem,
-  HomeQuickAction,
   HomeSuggestion,
 } from '../models/home-navigation.model';
 
@@ -22,9 +21,4 @@ export class HomeFeedService {
 
   readonly trends = ['#Angular', '#Frontend', '#WebPerformance'];
 
-  readonly quickActions: HomeQuickAction[] = [
-    { label: 'Post', icon: 'edit_square' },
-    { label: 'Photo', icon: 'photo_camera' },
-    { label: 'Poll', icon: 'poll' },
-  ];
 }

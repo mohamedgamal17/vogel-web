@@ -27,6 +27,7 @@ export class PostComposerPanelComponent {
   @Output() mediaFilesSelected = new EventEmitter<FileList | null>();
   @Output() clearDraft = new EventEmitter<void>();
   @Output() removeMedia = new EventEmitter<number>();
+  @Output() closeComposer = new EventEmitter<void>();
 
   onDraftInput(event: Event): void {
     this.draftPostTextChange.emit((event.target as HTMLTextAreaElement).value);

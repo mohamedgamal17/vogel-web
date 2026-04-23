@@ -22,11 +22,10 @@
   (mediaFilesSelected)="onMediaFilesSelected($event)"
   (clearDraft)="clearComposerDraft()"
   (removeMedia)="removeComposerMedia($event)"
+  (closeComposer)="closeComposer()"
 />
 
 <app-home-quick-actions-fab
-  [quickActions]="feedService.quickActions"
-  [isComposerMenuOpen]="composerService.isComposerMenuOpen"
-  (toggleComposerMenu)="toggleComposerMenu()"
-  (openComposerFromAction)="openComposerFromAction($event)"
+  [isComposerPanelOpen]="composerService.isComposerPanelOpen"
+  (toggleComposer)="toggleComposer()"
 />

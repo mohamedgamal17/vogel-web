@@ -1,55 +1,67 @@
 @if (isComposerPanelOpen) {
-  <section class="composer-panel" aria-label="Create post composer">
-    <mat-card class="composer-card">
-      <mat-card-header>
-        <mat-card-title>Create Post</mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="space-y-3">
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>What do you want to share?</mat-label>
-          <textarea matInput rows="3" [value]="draftPostText" (input)="onDraftInput($event)"></textarea>
-        </mat-form-field>
-
-        <div class="composer-controls">
-          <label for="media-upload-input" class="media-upload-label">
-            <mat-icon>add_photo_alternate</mat-icon>
-            <span>Add image/video</span>
-          </label>
-          <input
-            id="media-upload-input"
-            type="file"
-            accept="image/*,video/*"
-            multiple
-            (change)="onMediaChange($event)"
-          />
-
-          <button mat-stroked-button type="button" (click)="clearDraft.emit()">Clear</button>
-          <button mat-flat-button type="button" [disabled]="!draftPostText && !composerMediaPreviews.length">
-            Post
+  <section class="composer-overlay" aria-label="Create post composer">
+    <div class="composer-backdrop" (click)="closeComposer.emit()" aria-hidden="true"></div>
+    <div class="composer-panel">
+      <mat-card class="composer-card">
+        <mat-card-header>
+          <mat-card-title>Create Post</mat-card-title>
+          <button
+            mat-icon-button
+            type="button"
+            class="composer-close-btn"
+            aria-label="Close create post modal"
+            (click)="closeComposer.emit()"
+          >
+            <mat-icon>close</mat-icon>
           </button>
-        </div>
+        </mat-card-header>
+        <mat-card-content class="space-y-3">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>What do you want to share?</mat-label>
+            <textarea matInput rows="3" [value]="draftPostText" (input)="onDraftInput($event)"></textarea>
+          </mat-form-field>
 
-        @if (composerMediaPreviews.length) {
-          <div class="composer-preview-grid">
-            @for (media of composerMediaPreviews; track media.previewUrl; let i = $index) {
-              <div class="composer-preview-item">
-                @if (media.kind === 'image') {
-                  <img [src]="media.previewUrl" [alt]="media.name" />
-                } @else {
-                  <video [src]="media.previewUrl" controls preload="metadata"></video>
-                }
+          <div class="composer-controls">
+            <label for="media-upload-input" class="media-upload-label">
+              <mat-icon>add_photo_alternate</mat-icon>
+              <span>Add image/video</span>
+            </label>
+            <input
+              id="media-upload-input"
+              type="file"
+              accept="image/*,video/*"
+              multiple
+              (change)="onMediaChange($event)"
+            />
 
-                <div class="composer-preview-meta">
-                  <span>{{ media.name }}</span>
-                  <button mat-icon-button type="button" aria-label="Remove media" (click)="removeMedia.emit(i)">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </div>
-              </div>
-            }
+            <button mat-stroked-button type="button" (click)="clearDraft.emit()">Clear</button>
+            <button mat-flat-button type="button" [disabled]="!draftPostText && !composerMediaPreviews.length">
+              Post
+            </button>
           </div>
-        }
-      </mat-card-content>
-    </mat-card>
+
+          @if (composerMediaPreviews.length) {
+            <div class="composer-preview-grid">
+              @for (media of composerMediaPreviews; track media.previewUrl; let i = $index) {
+                <div class="composer-preview-item">
+                  @if (media.kind === 'image') {
+                    <img [src]="media.previewUrl" [alt]="media.name" />
+                  } @else {
+                    <video [src]="media.previewUrl" controls preload="metadata"></video>
+                  }
+
+                  <div class="composer-preview-meta">
+                    <span>{{ media.name }}</span>
+                    <button mat-icon-button type="button" aria-label="Remove media" (click)="removeMedia.emit(i)">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
+    </div>
   </section>
 }

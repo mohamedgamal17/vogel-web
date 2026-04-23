@@ -3,19 +3,20 @@ import { PostComposerMediaPreview } from '../models/post-composer.model';
 
 @Injectable()
 export class PostComposerService {
-  isComposerMenuOpen = false;
   isComposerPanelOpen = false;
   draftPostText = '';
   readonly composerMediaPreviews: PostComposerMediaPreview[] = [];
 
-  toggleComposerMenu(): void {
-    this.isComposerMenuOpen = !this.isComposerMenuOpen;
+  openComposer(): void {
+    this.isComposerPanelOpen = true;
   }
 
-  openComposerFromAction(actionLabel: string): void {
-    this.isComposerPanelOpen =
-      actionLabel === 'Post' || actionLabel === 'Photo';
-    this.isComposerMenuOpen = false;
+  closeComposer(): void {
+    this.isComposerPanelOpen = false;
+  }
+
+  toggleComposer(): void {
+    this.isComposerPanelOpen = !this.isComposerPanelOpen;
   }
 
   setDraftPostText(value: string): void {
@@ -50,7 +51,7 @@ export class PostComposerService {
   clearComposerDraft(): void {
     this.releaseAllMediaPreviews();
     this.draftPostText = '';
-    this.isComposerPanelOpen = false;
+    this.closeComposer();
   }
 
   dispose(): void {
