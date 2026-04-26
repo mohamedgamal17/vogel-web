@@ -9,6 +9,8 @@
   --color-surface-soft: var(--app-color-surface-soft);
   --color-on-surface: var(--app-color-on-surface);
   --color-outline: var(--app-color-outline);
+  --color-secondary: var(--app-color-secondary);
+  --color-secondary-soft: var(--app-color-secondary-soft);
 
   --font-sans: var(--app-font-family-sans);
 
@@ -19,6 +21,8 @@
   --spacing-5: var(--app-space-5);
   --spacing-6: var(--app-space-6);
   --spacing-8: var(--app-space-8);
+  --spacing-10: var(--app-space-10);
+  --spacing-12: var(--app-space-12);
 
   --radius-sm: var(--app-radius-sm);
   --radius-md: var(--app-radius-md);
@@ -28,4 +32,33 @@
   --shadow-sm: var(--app-shadow-1);
   --shadow-md: var(--app-shadow-2);
   --shadow-lg: var(--app-shadow-3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--app-color-surface-soft) 84%, transparent),
+    var(--app-color-surface)
+  );
+}
+
+.app-focusable:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
 }

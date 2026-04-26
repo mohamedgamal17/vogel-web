@@ -6,6 +6,7 @@
   border: var(--app-border-subtle);
   border-radius: var(--app-radius-md);
   padding: var(--app-space-3);
+  box-shadow: var(--app-shadow-1);
 }
 
 .surface-panel {
@@ -62,6 +63,11 @@
 .subreply-btn {
   border-radius: var(--app-radius-pill);
   min-width: 0;
+}
+
+.subreply-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
 }
 
 @media (max-width: 767px) {

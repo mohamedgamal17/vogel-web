@@ -6,7 +6,12 @@
   color: color-mix(in srgb, var(--app-color-on-primary) 94%, transparent);
 }
 
+.final-cta-surface {
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow-2);
+}
+
 .final-cta-login-button:focus-visible {
   outline: none;
-  box-shadow: var(--app-focus-ring);
+  box-shadow: var(--app-focus-ring-strong);
 }

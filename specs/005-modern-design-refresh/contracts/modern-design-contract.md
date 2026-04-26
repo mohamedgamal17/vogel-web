@@ -53,6 +53,13 @@ modernization while preserving existing authentication and backend integration b
 - Existing backend API contracts and request/response behaviors MUST remain unchanged.
 - UI updates MUST NOT introduce regressions in primary user workflows.
 
+## Implementation Evidence Notes
+
+- Token modernization completed through `src/styles/design-tokens.css` and `src/material-theme.scss`.
+- Core feature surfaces (`landing`, `home`, `auth`, `posts`, `profile`) received style updates aligned to the semantic design system.
+- Accessibility-focused focus-visible and readable contrast behaviors were applied globally and across major interactive surfaces.
+- Route lazy-loading boundaries and auth/API behavior remain unchanged.
+
 ## Verification Matrix
 
 - **Coverage validation**: 100% of existing pages are updated and pass design review.

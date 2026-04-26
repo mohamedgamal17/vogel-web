@@ -39,6 +39,16 @@
 - A page cannot be marked `approved` until both accessibility and performance status are passing.
 - Dark theme status is excluded from this entity for this feature and treated as deferred scope.
 
+### Current Coverage Snapshot
+
+| pageId | featureArea | themeModeScope | modernizationStatus | accessibilityStatus | performanceStatus |
+|--------|-------------|----------------|---------------------|---------------------|-------------------|
+| landing-page | landing | light-only | validated | wcag-aa-pass | pending |
+| home-page | home | light-only | validated | wcag-aa-pass | pending |
+| sign-in-page | auth | light-only | validated | wcag-aa-pass | pending |
+| posts-surfaces | posts | light-only | validated | wcag-aa-pass | pending |
+| profile-preview-page | profile | light-only | validated | wcag-aa-pass | pending |
+
 ## Entity: Component Style Profile
 
 **Description**: Defines expected visual and interaction-state behavior for reusable UI components.
@@ -77,3 +87,10 @@
 - Validation runs MUST cover all in-scope existing pages before final sign-off.
 - Failed accessibility or performance results MUST block release sign-off for this feature.
 - Regression notes MUST confirm no auth flow or backend contract behavior changes.
+
+## Implementation Mapping
+
+- `Visual Theme Token Set` updates are implemented in `src/styles/design-tokens.css`.
+- `Component Style Profile` updates are implemented across feature component style files in `src/app/features/**`.
+- `Page Modernization Coverage` is tracked in this document and validated through `quickstart.md` steps.
+- `Modernization Validation Run` evidence is tracked in `quickstart.md` and contract verification notes.

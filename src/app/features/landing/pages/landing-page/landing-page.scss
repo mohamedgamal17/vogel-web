@@ -2,3 +2,11 @@
   display: block;
   color: var(--app-color-on-surface);
 }
+
+:host ::ng-deep section {
+  position: relative;
+}
+
+:host ::ng-deep section + section {
+  margin-top: var(--app-space-2);
+}

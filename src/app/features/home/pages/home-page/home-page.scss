@@ -1,3 +1,9 @@
 :host {
   display: block;
+  color: var(--app-color-on-surface);
+}
+
+:host ::ng-deep main {
+  background: color-mix(in srgb, var(--app-color-surface-soft) 42%, transparent);
+  border-radius: var(--app-radius-lg);
 }

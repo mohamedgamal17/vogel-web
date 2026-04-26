@@ -13,7 +13,7 @@
 .composer-backdrop {
   position: absolute;
   inset: 0;
-  background: color-mix(in oklab, var(--app-color-surface) 50%, transparent);
+  background: color-mix(in oklab, var(--app-color-surface) 62%, transparent);
 }
 
 .composer-panel {
@@ -27,6 +27,7 @@
   border: var(--app-border-subtle);
   border-radius: var(--app-radius-lg);
   overflow: auto;
+  box-shadow: var(--app-shadow-3);
 }
 
 .composer-card mat-card-header {

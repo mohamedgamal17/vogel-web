@@ -13,9 +13,14 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--app-space-3);
+  box-shadow: var(--app-shadow-1);
 }
 
 .feed-state-panel-error {
   border-color: color-mix(in srgb, var(--app-color-danger) 45%, transparent);
   background: var(--app-color-danger-soft);
+}
+
+:host ::ng-deep app-post {
+  display: block;
 }

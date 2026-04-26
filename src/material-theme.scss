@@ -27,6 +27,9 @@ html {
   --mat-sys-on-surface: var(--app-color-on-surface);
   --mat-sys-outline: var(--app-color-outline);
   --mat-sys-outline-variant: var(--app-color-outline-strong);
+  --mat-sys-secondary: var(--app-color-secondary);
+  --mat-sys-on-secondary: var(--app-color-on-primary);
+  --mat-sys-secondary-container: var(--app-color-secondary-soft);
   --mat-sys-error: var(--app-color-danger);
   --mat-sys-on-error: var(--app-color-on-primary);
 
@@ -48,6 +51,22 @@ html {
 .app-focusable:focus-visible {
   outline: none;
   box-shadow: var(--app-focus-ring);
+}
+
+.mat-mdc-card {
+  border-radius: var(--app-radius-lg);
+  border: var(--app-border-subtle);
+  box-shadow: var(--app-shadow-1);
+}
+
+.mat-mdc-card:hover {
+  box-shadow: var(--app-shadow-2);
+}
+
+.mat-mdc-fab,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+  border-radius: var(--app-radius-pill);
 }
 
 body {

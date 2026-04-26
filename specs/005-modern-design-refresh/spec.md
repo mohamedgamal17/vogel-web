@@ -13,6 +13,7 @@
 - Q: What accessibility target should govern redesigned visuals? → A: Require WCAG 2.1 AA contrast and visible focus states across all redesigned pages.
 - Q: What UI performance target should the redesign meet? → A: 95% of page transitions render updated UI state in <=2 seconds on standard user conditions.
 - Q: What is the theme-mode scope for this redesign feature? → A: Light theme only for this feature; dark mode deferred.
+- Stakeholder sign-off note: Walkthrough script and scoring rubric captured in `quickstart.md`; final acceptance evidence to be recorded after release-candidate review.
 
 ## User Scenarios & Testing *(mandatory)*
 

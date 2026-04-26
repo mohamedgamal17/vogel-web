@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+:host ::ng-deep .hero-gradient {
+  background: radial-gradient(
+      120% 120% at 0% 0%,
+      color-mix(in srgb, var(--app-color-primary-soft) 76%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      110% 110% at 100% 0%,
+      color-mix(in srgb, var(--app-color-secondary-soft) 70%, transparent),
+      transparent
+    );
+}

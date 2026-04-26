@@ -33,3 +33,6 @@
 
 - Validation pass completed in one iteration.
 - No unresolved clarification markers were needed for this feature.
+- [x] Coverage validation checklist defined for all in-scope pages.
+- [x] Accessibility validation checklist defined for WCAG 2.1 AA contrast/focus checks.
+- [x] Performance validation checklist defined for 95% <=2s page transition target.

@@ -9,12 +9,17 @@
   height: 4.5rem;
   background: var(--app-color-backdrop-soft);
   backdrop-filter: blur(12px);
-  border-bottom: var(--app-border-subtle);
+  border-bottom: 1px solid var(--app-color-divider);
+  box-shadow: var(--app-shadow-1);
 }
 
 .brand-badge {
   color: var(--app-color-primary);
   background: var(--app-color-primary-soft);
+}
+
+:host ::ng-deep .home-toolbar .mat-icon {
+  color: var(--app-color-primary);
 }
 
 @media (max-width: 767px) {

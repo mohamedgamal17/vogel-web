@@ -9,9 +9,19 @@
 
 .nav-item {
   border-radius: var(--app-radius-md);
+  transition: background-color var(--app-transition-standard), color var(--app-transition-standard);
+}
+
+.nav-item:hover {
+  background: color-mix(in srgb, var(--app-color-primary-soft) 70%, transparent);
 }
 
 .nav-item-active {
   background: var(--app-color-primary-soft);
   color: var(--app-color-primary);
+}
+
+.nav-item:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
 }

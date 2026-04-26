@@ -2,10 +2,11 @@
   /* Color primitives */
   --app-color-brand-50: #fdf2f8;
   --app-color-brand-100: #fce7f3;
-  --app-color-brand-500: #e11d73;
-  --app-color-brand-600: #c2185f;
-  --app-color-brand-700: #a0134f;
-  --app-color-accent-500: #6d28d9;
+  --app-color-brand-500: #db2777;
+  --app-color-brand-600: #be185d;
+  --app-color-brand-700: #9d174d;
+  --app-color-accent-500: #7c3aed;
+  --app-color-accent-600: #6d28d9;
   --app-color-neutral-0: #ffffff;
   --app-color-neutral-50: #f8fafc;
   --app-color-neutral-100: #f1f5f9;
@@ -17,18 +18,22 @@
   /* Semantic colors */
   --app-color-primary: var(--app-color-brand-600);
   --app-color-primary-strong: var(--app-color-brand-700);
-  --app-color-primary-soft: color-mix(in srgb, var(--app-color-primary) 14%, transparent);
-  --app-color-primary-soft-strong: color-mix(in srgb, var(--app-color-primary) 18%, transparent);
+  --app-color-primary-soft: color-mix(in srgb, var(--app-color-primary) 16%, transparent);
+  --app-color-primary-soft-strong: color-mix(in srgb, var(--app-color-primary) 24%, transparent);
+  --app-color-secondary: var(--app-color-accent-600);
+  --app-color-secondary-soft: color-mix(in srgb, var(--app-color-secondary) 16%, transparent);
   --app-color-on-primary: var(--app-color-neutral-0);
   --app-color-surface: var(--app-color-neutral-0);
   --app-color-surface-soft: var(--app-color-neutral-50);
   --app-color-surface-muted: var(--app-color-neutral-100);
   --app-color-on-surface: var(--app-color-neutral-900);
-  --app-color-on-surface-muted: var(--app-color-neutral-700);
+  --app-color-on-surface-muted: #475569;
+  --app-color-on-surface-subtle: #64748b;
   --app-color-outline: var(--app-color-neutral-300);
-  --app-color-outline-strong: var(--app-color-neutral-200);
+  --app-color-outline-strong: #dbe4ef;
+  --app-color-divider: color-mix(in srgb, var(--app-color-neutral-300) 65%, transparent);
   --app-color-danger: #b91c1c;
-  --app-color-danger-soft: color-mix(in srgb, var(--app-color-danger) 12%, transparent);
+  --app-color-danger-soft: color-mix(in srgb, var(--app-color-danger) 14%, transparent);
   --app-color-success: #166534;
   --app-color-success-soft: color-mix(in srgb, var(--app-color-success) 12%, transparent);
   --app-color-inverse-surface: var(--app-color-neutral-900);
@@ -47,6 +52,8 @@
   --app-type-title-sm: 1.125rem;
   --app-type-title-md: 1.25rem;
   --app-type-title-lg: 1.5rem;
+  --app-type-title-xl: 2rem;
+  --app-type-title-2xl: 2.5rem;
 
   /* Spacing scale */
   --app-space-1: 0.25rem;
@@ -59,6 +66,8 @@
   --app-space-8: 2rem;
   --app-space-10: 2.5rem;
   --app-space-12: 3rem;
+  --app-space-14: 3.5rem;
+  --app-space-16: 4rem;
 
   /* Radius / borders */
   --app-radius-sm: 0.5rem;
@@ -70,9 +79,11 @@
   --app-border-subtle: var(--app-border-thin) solid var(--app-color-outline-strong);
 
   /* Shadows */
-  --app-shadow-1: 0 4px 12px rgb(15 23 42 / 0.08);
-  --app-shadow-2: 0 10px 24px rgb(15 23 42 / 0.14);
-  --app-shadow-3: 0 16px 32px rgb(15 23 42 / 0.18);
-  --app-focus-ring: 0 0 0 3px color-mix(in srgb, var(--app-color-primary) 35%, transparent);
+  --app-shadow-1: 0 6px 14px rgb(15 23 42 / 0.08);
+  --app-shadow-2: 0 12px 28px rgb(15 23 42 / 0.13);
+  --app-shadow-3: 0 18px 38px rgb(15 23 42 / 0.17);
+  --app-focus-ring: 0 0 0 3px color-mix(in srgb, var(--app-color-primary) 42%, transparent);
+  --app-focus-ring-strong: 0 0 0 4px color-mix(in srgb, var(--app-color-secondary) 28%, transparent);
   --app-transition-standard: 180ms ease;
+  --app-transition-slow: 240ms ease;
 }

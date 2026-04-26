@@ -41,6 +41,12 @@
   box-shadow: var(--app-shadow-3);
 }
 
+.fab-action-btn:focus-visible,
+.fab-main:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring-strong);
+}
+
 @media (max-width: 767px) {
   .fab-cluster {
     right: var(--app-space-4);
