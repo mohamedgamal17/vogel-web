@@ -7,8 +7,17 @@ export const routes: Routes = [
       import('./features/landing/landing.routes').then((m) => m.provideLandingRoutes()),
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.routes').then((m) => m.provideAuthRoutes()),
+  },
+  {
     path: 'home',
     loadChildren: () =>
       import('./features/home/home.routes').then((m) => m.provideHomeRoutes()),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./features/profile/profile.routes').then((m) => m.provideProfileRoutes()),
   },
 ];
