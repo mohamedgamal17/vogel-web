@@ -1,3 +1,18 @@
-@for (post of posts; track post.id) {
-  <app-post [post]="post" (createComment)="onCreateComment($event)" (createReply)="onCreateReply($event)" />
+@if (isLoading) {
+  <section class="feed-state-panel" role="status" aria-live="polite">
+    <p>Loading posts...</p>
+  </section>
+} @else if (errorMessage) {
+  <section class="feed-state-panel feed-state-panel-error" role="alert">
+    <p>{{ errorMessage }}</p>
+    @if (canRetry) {
+      <button mat-flat-button type="button" class="app-focusable" (click)="onRetryLoad()">
+        Retry loading posts ({{ retryAttempt }}/{{ maxRetryAttempts }})
+      </button>
+    }
+  </section>
+} @else {
+  @for (post of posts; track post.id) {
+    <app-post [post]="post" (createComment)="onCreateComment($event)" (createReply)="onCreateReply($event)" />
+  }
 }

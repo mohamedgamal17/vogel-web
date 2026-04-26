@@ -33,6 +33,7 @@ export class LandingPage {
     private router: Router,
     private destroyRef: DestroyRef
   ) {
+    // Preserve existing auth flow: authenticated users are redirected to home.
     this.authService.isAuthenticated$
       .pipe(
         filter((isAuthenticated) => isAuthenticated),
@@ -44,6 +45,7 @@ export class LandingPage {
   }
 
   onLogin(): void {
+    // Keep Auth0 login entry-point behavior unchanged for this refactor.
     this.authService.loginWithRedirect();
   }
 }

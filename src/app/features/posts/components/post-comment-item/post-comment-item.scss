@@ -8,6 +8,10 @@
   padding: var(--app-space-3);
 }
 
+.surface-panel {
+  background: var(--app-color-surface);
+}
+
 .comment-header {
   display: flex;
   align-items: flex-start;

@@ -8,6 +8,10 @@
   transition: transform var(--app-motion-standard), box-shadow var(--app-motion-standard);
 }
 
+.surface-panel {
+  background: var(--app-color-surface);
+}
+
 .post-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--app-shadow-2);
@@ -29,6 +33,11 @@
   border-radius: var(--app-radius-pill);
 }
 
+.post-action-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
+}
+
 .post-media {
   overflow: hidden;
   border-radius: var(--app-radius-md);
@@ -48,5 +57,15 @@
   .post-media img,
   .post-media video {
     max-height: 16rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card {
+    transition: none;
+  }
+
+  .post-card:hover {
+    transform: none;
   }
 }

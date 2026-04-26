@@ -1,99 +1,91 @@
 <!--
 Sync Impact Report
-- Version change: template -> 1.0.0
+- Version change: 0.0.0 -> 1.0.0
 - Modified principles:
-  - [PRINCIPLE_1_NAME] -> I. Feature-First Angular Structure (NON-NEGOTIABLE)
-  - [PRINCIPLE_2_NAME] -> II. Signals-First State Management
-  - [PRINCIPLE_3_NAME] -> III. API Contract Resilience
-  - [PRINCIPLE_4_NAME] -> IV. Design System and UI Decoupling
-  - [PRINCIPLE_5_NAME] -> V. Lazy-Loaded Delivery and Quality Gates
+  - N/A (initial adoption)
 - Added sections:
-  - Technical Standards
-  - Delivery Workflow and Review Rules
+  - Core Principles
+  - Architecture & Design Constraints
+  - Delivery Workflow & Quality Gates
+  - Governance
 - Removed sections:
   - None
 - Templates requiring updates:
-  - ✅ .specify/templates/plan-template.md
-  - ✅ .specify/templates/spec-template.md
-  - ✅ .specify/templates/tasks-template.md
-  - ✅ .specify/templates/commands/*.md (none present)
+  - ✅ updated: .specify/templates/plan-template.md
+  - ✅ updated: .specify/templates/spec-template.md
+  - ✅ updated: .specify/templates/tasks-template.md
+  - ✅ checked (no file found): .specify/templates/commands/*.md
 - Follow-up TODOs:
   - None
 -->
-# SocialMedia Client Constitution
+# VogelWeb Constitution
 
 ## Core Principles
 
-### I. Feature-First Angular Structure (NON-NEGOTIABLE)
-All production code MUST follow the existing Angular feature-based structure under
-`src/app/features`, with clear boundaries between `core`, `shared`, `layout`, and feature
-domains. New work MUST extend the current structure instead of introducing parallel
-architectures. Cross-feature coupling MUST be minimized through typed contracts and
-shared abstractions.
-Rationale: a consistent feature-first layout keeps ownership clear and enables safe,
-incremental growth as the app expands.
+### I. Feature-First Angular Architecture
+All product work MUST live in `src/app/features/<feature>/` with clear separation among
+pages/containers, components, and services. Root-level routing MUST stay thin and lazy-load
+feature route entrypoints. This keeps the app scalable as new social features are added.
 
-### II. Signals-First State Management
-Component and feature state MUST use Angular Signals as the default reactive model.
-Shared feature state SHOULD be exposed through services using typed signals and computed
-selectors. NgRx MAY be introduced only for explicitly complex global workflows and MUST
-include a documented complexity justification in the feature plan.
-Rationale: signals reduce ceremony for common state needs while preserving a deliberate
-path for complex orchestration.
+### II. Pages Orchestrate, Components Present
+Only routed pages/containers MAY orchestrate user flows and data loading. Feature services are
+the only layer that MAY perform API requests. Presentational components MUST stay render-only
+with explicit inputs and emitted intents. This prevents coupling and keeps UI units reusable.
 
-### III. API Contract Resilience
-All API integrations MUST tolerate additive response changes (new properties) without
-breaking runtime behavior. API models and adapters MUST preserve backward compatibility by
-accepting unknown fields while validating required fields. The Swagger source may change
-location and content over time; integration logic MUST remain based on stable response
-shape semantics, not strict property count assumptions.
-Rationale: the backend schema evolves, so client reliability depends on forward-compatible
-parsing and strict handling of required invariants only.
+### III. Design Tokens Are the UI Source of Truth
+Base UI and visual decisions MUST use app design tokens as the primary contract. Feature styles
+MUST consume app tokens instead of direct third-party theme variables. Material token bridges and
+global overrides MUST be centralized in the designated theme files. This ensures consistent
+branding during UI refactors and future expansion.
 
-### IV. Design System and UI Decoupling
-Styling MUST be implemented through design tokens, Tailwind utilities, and approved
-Angular Material usage patterns. Visual decisions MUST be token-driven and MUST avoid
-hard-coded semantic colors or ad-hoc theme overrides. Angular Material MUST be treated as
-behavioral primitives first, with styling routed through the design system bridge.
-Rationale: token-based theming protects long-term UI consistency and future library
-mobility.
+### IV. Progressive Delivery with Measurable Validation
+Every feature specification MUST define independently testable user stories, acceptance scenarios,
+edge cases, and measurable success criteria before planning. Work MUST be sequenced so each story
+can be delivered and validated incrementally. This reduces risk and supports predictable releases.
 
-### V. Lazy-Loaded Delivery and Quality Gates
-Feature routes MUST be lazy-loaded and registered through the agreed route registration
-pattern. Every feature change MUST include test coverage proportional to risk (unit,
-integration, and contract checks where API behavior is affected) and MUST pass linting and
-build checks before merge. New complexity MUST be justified when simpler alternatives are
-available.
-Rationale: lazy delivery controls bundle growth, and enforceable quality gates reduce
-regressions in a fast-moving social client.
+### V. Auth and API Contract Stability
+Authentication behavior and backend integration contracts MUST remain stable during UI and
+architecture refactors unless a feature specification explicitly includes contract changes. New
+work MUST document assumptions and dependencies on auth and API behavior. This protects core user
+flows while allowing iterative frontend improvements.
 
-## Technical Standards
+## Architecture & Design Constraints
 
-- The primary stack is Angular + Tailwind CSS + Angular Material.
-- API access MUST be centralized in data-access/services layers; UI components MUST NOT
-  issue raw HTTP calls.
-- Feature interfaces and mappers MUST prefer additive-safe typing to handle new backend
-  fields.
-- Component state transitions MUST remain explicit and testable, especially when driven by
-  signals and async API workflows.
+- Angular feature route registration MUST remain lazy-loaded by feature route entry files.
+- Layout and visual hierarchy MUST be consistent across public and authenticated experiences.
+- Shared UI primitives and styling patterns SHOULD be reused before introducing new variants.
+- Any exception to feature structure or token usage MUST include explicit justification in the
+  implementation plan complexity tracking section.
 
-## Delivery Workflow and Review Rules
+## Delivery Workflow & Quality Gates
 
-- Each specification and plan MUST include a constitution compliance check before
-  implementation.
-- Pull requests MUST document: impacted feature area, state-management approach (Signals or
-  justified NgRx), API impact, and test evidence.
-- Any governance-impacting change MUST include an amendment note and version rationale.
-- Reviewers MUST block merges that violate feature structure, state policy, or API
-  resilience requirements.
+1. Specification MUST focus on user value and outcomes, not implementation details.
+2. Plan MUST pass Constitution Check gates before research/design and after design updates.
+3. Tasks MUST be grouped by user story with independent testability and clear dependencies.
+4. Pull requests MUST verify no regressions in existing auth flows and core page behavior when
+   refactoring UI or architecture.
+5. Reviewers MUST block merges when constitutional principles are violated without approved
+   documented exceptions.
 
 ## Governance
 
-This constitution overrides conflicting local conventions for implementation and review.
-Amendments require: (1) explicit change proposal, (2) impact statement across templates
-and workflows, and (3) approval from project maintainers. Versioning follows semantic
-rules: MAJOR for incompatible governance redefinition or removal, MINOR for new principle
-or materially expanded policy, PATCH for clarifications only. Compliance is verified during
-plan creation, task generation, and pull request review.
+This constitution is the highest-priority engineering policy for the repository. If guidance in
+templates, prompts, or local conventions conflicts with this document, this constitution prevails.
+
+Amendment process:
+1. Propose changes in writing with rationale and impact.
+2. Update related templates and workflows in the same change set.
+3. Record a version bump based on semantic policy.
+4. Obtain maintainer approval before adoption.
+
+Versioning policy:
+- MAJOR: Breaking governance changes or principle removals/redefinitions.
+- MINOR: New principle/section or materially expanded mandatory guidance.
+- PATCH: Clarifications, wording improvements, and non-semantic refinements.
+
+Compliance expectations:
+- Each plan, task set, and implementation review MUST include constitution compliance checks.
+- Violations MUST be tracked with explicit rationale and approved remediation.
+- Periodic audits SHOULD confirm that architecture, UI, and process remain aligned.
 
 **Version**: 1.0.0 | **Ratified**: 2026-04-26 | **Last Amended**: 2026-04-26

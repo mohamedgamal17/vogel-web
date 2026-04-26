@@ -3,6 +3,8 @@ import { Post } from '../models/post.model';
 
 @Injectable()
 export class PostsFeedService {
+  private readonly maxRetryAttempts = 3;
+  private failNextLoad = false;
   private _posts: Post[] = [
     {
       id: 1,
@@ -94,6 +96,24 @@ export class PostsFeedService {
 
   get posts(): Post[] {
     return this._posts;
+  }
+
+  getMaxRetryAttempts(): number {
+    return this.maxRetryAttempts;
+  }
+
+  loadPosts(): Post[] {
+    if (this.failNextLoad) {
+      this.failNextLoad = false;
+      throw new Error('Failed to load the latest posts. Please retry.');
+    }
+
+    return this._posts;
+  }
+
+  // Used to validate retry UX without changing backend contracts.
+  simulateNextLoadFailure(): void {
+    this.failNextLoad = true;
   }
 
   addComment(postId: number, content: string): void {

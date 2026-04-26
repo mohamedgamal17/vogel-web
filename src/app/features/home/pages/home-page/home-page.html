@@ -7,9 +7,15 @@
 
   <section class="md:col-span-6">
     <app-post-feed-list
-      [posts]="postsFeedService.posts"
+      [posts]="feedPosts"
+      [isLoading]="isFeedLoading"
+      [errorMessage]="feedErrorMessage"
+      [retryAttempt]="retryAttempt"
+      [maxRetryAttempts]="maxRetryAttempts"
+      [canRetry]="retryAttempt < maxRetryAttempts"
       (createComment)="createComment($event)"
       (createReply)="createReply($event)"
+      (retryLoad)="retryLoadPosts()"
     />
   </section>
 

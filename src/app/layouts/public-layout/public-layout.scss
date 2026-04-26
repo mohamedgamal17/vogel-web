@@ -1,3 +1,20 @@
 :host {
   display: block;
+  background: var(--app-color-surface);
+  color: var(--app-color-on-surface);
+  min-height: 100dvh;
+}
+
+:host ::ng-deep main {
+  margin-inline: auto;
+  width: min(100%, 1200px);
+  padding-inline: var(--app-space-4);
+  padding-block: var(--app-space-6);
+}
+
+@media (min-width: 768px) {
+  :host ::ng-deep main {
+    padding-inline: var(--app-space-6);
+    padding-block: var(--app-space-8);
+  }
 }

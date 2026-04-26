@@ -1,3 +1,12 @@
 :host {
   display: block;
 }
+
+.landing-toolbar {
+  backdrop-filter: blur(10px);
+}
+
+.cta-login-on-primary:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
+}

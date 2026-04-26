@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HomeQuickActionsFabComponent } from '../../components/home-quick-actions-fab/home-quick-actions-fab';
 import { HomeRightRailComponent } from '../../components/home-right-rail/home-right-rail';
 import { HomeSidebarNavComponent } from '../../components/home-sidebar-nav/home-sidebar-nav';
@@ -23,12 +23,24 @@ import { PostsFeedService } from '../../../posts/services/posts-feed.service';
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
-export class HomePage implements OnDestroy {
+export class HomePage implements OnDestroy, OnInit {
+  feedPosts = [] as ReturnType<PostsFeedService['loadPosts']>;
+  isFeedLoading = false;
+  feedErrorMessage: string | null = null;
+  retryAttempt = 0;
+  readonly maxRetryAttempts: number;
+
   constructor(
     readonly feedService: HomeFeedService,
     readonly postsFeedService: PostsFeedService,
     readonly composerService: PostComposerService
-  ) {}
+  ) {
+    this.maxRetryAttempts = this.postsFeedService.getMaxRetryAttempts();
+  }
+
+  ngOnInit(): void {
+    this.loadPosts();
+  }
 
   toggleComposer(): void {
     this.composerService.toggleComposer();
@@ -56,10 +68,33 @@ export class HomePage implements OnDestroy {
 
   createComment(event: { postId: number; content: string }): void {
     this.postsFeedService.addComment(event.postId, event.content);
+    this.feedPosts = this.postsFeedService.posts;
   }
 
   createReply(event: { postId: number; commentId: number; content: string }): void {
     this.postsFeedService.addReply(event.postId, event.commentId, event.content);
+    this.feedPosts = this.postsFeedService.posts;
+  }
+
+  retryLoadPosts(): void {
+    if (this.retryAttempt >= this.maxRetryAttempts) {
+      return;
+    }
+    this.loadPosts();
+  }
+
+  private loadPosts(): void {
+    this.isFeedLoading = true;
+    this.feedErrorMessage = null;
+    try {
+      this.feedPosts = this.postsFeedService.loadPosts();
+      this.retryAttempt = 0;
+    } catch (error) {
+      this.retryAttempt += 1;
+      this.feedErrorMessage = error instanceof Error ? error.message : 'Unable to load posts.';
+    } finally {
+      this.isFeedLoading = false;
+    }
   }
 
   ngOnDestroy(): void {

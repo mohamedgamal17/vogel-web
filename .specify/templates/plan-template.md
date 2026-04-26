@@ -31,12 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- Feature-first structure preserved under `src/app/features` with no parallel architecture.
-- State plan is Signals-first; any NgRx usage includes explicit complexity justification.
-- API integration is additive-safe against new Swagger response properties.
-- Routing strategy keeps feature routes lazy-loaded and explicitly registered.
-- Styling strategy follows design tokens + Tailwind + Angular Material bridge rules.
-- Verification includes lint/build plus risk-based tests (unit/integration/contract as needed).
+- [ ] Feature-first architecture is preserved (feature routing remains lazy-loaded; no root-route sprawl)
+- [ ] Data-access boundaries are respected (pages orchestrate, services call APIs, components remain presentational)
+- [ ] Base UI strategy uses app design tokens and avoids ad-hoc third-party token leakage
+- [ ] Auth and API contract stability assumptions are documented with clear scope boundaries
+- [ ] Independent story delivery and measurable validation strategy are defined
 
 ## Project Structure
 

@@ -90,12 +90,6 @@
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
 
-### API Evolution Considerations *(mandatory when API-backed)*
-
-- Define how the feature tolerates additive API response fields without runtime breakage.
-- Identify required vs optional response fields for each impacted API contract.
-- Specify fallback behavior when optional fields are absent or extended.
-
 *Example of marking unclear requirements:*
 
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
@@ -132,3 +126,15 @@
 - [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
 - [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
 - [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+
+## Constitution Alignment *(mandatory)*
+
+<!--
+  ACTION REQUIRED: Confirm the specification aligns with constitutional constraints.
+  Keep this section implementation-agnostic and outcome-focused.
+-->
+
+- **Architecture Alignment**: [How this feature preserves feature-based structure and bounded scope]
+- **Data Access Alignment**: [How page/service/component responsibilities remain clear]
+- **Design System Alignment**: [How UI behavior/visual consistency follows shared tokenized patterns]
+- **Auth & API Contract Alignment**: [How existing authentication and backend behavior are preserved or explicitly scoped]

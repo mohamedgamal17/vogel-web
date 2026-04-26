@@ -18,12 +18,18 @@
       friends with a sign-in experience powered by Auth0.
     </p>
     <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-      <button mat-flat-button type="button" color="primary" class="cta-login-on-primary !px-8 !py-2 !text-base" (click)="onLogin()">
-        Log in with Auth0
+      <button
+        mat-flat-button
+        type="button"
+        color="primary"
+        class="cta-login-on-primary app-focusable !px-8 !py-2 !text-base"
+        (click)="onLogin()"
+      >
+        Continue with Auth0
       </button>
     </div>
     <p class="mt-4 text-xs text-[var(--mat-sys-on-surface-variant)]">
-      CTAs are visual only in this build-Auth0 integration comes next.
+      Secure sign-in keeps your session and redirects unchanged in this release.
     </p>
   </div>
 </section>

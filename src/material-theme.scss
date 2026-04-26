@@ -27,6 +27,8 @@ html {
   --mat-sys-on-surface: var(--app-color-on-surface);
   --mat-sys-outline: var(--app-color-outline);
   --mat-sys-outline-variant: var(--app-color-outline-strong);
+  --mat-sys-error: var(--app-color-danger);
+  --mat-sys-on-error: var(--app-color-on-primary);
 
   --app-motion-standard: 180ms ease;
 }
@@ -41,6 +43,11 @@ html {
   --mdc-filled-button-container-color: var(--app-color-inverse-surface);
   --mdc-filled-button-label-text-color: var(--app-color-inverse-on-surface);
   --mat-filled-button-state-layer-color: var(--app-color-primary);
+}
+
+.app-focusable:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
 }
 
 body {

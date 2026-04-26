@@ -33,3 +33,10 @@ export type Post = {
   shares: number;
   media?: PostMedia;
 };
+
+export type FeedRetryState = {
+  canRetry: boolean;
+  attempt: number;
+  maxAttempts: number;
+  message?: string;
+};

@@ -5,3 +5,8 @@
 .final-cta-supporting-text {
   color: color-mix(in srgb, var(--app-color-on-primary) 94%, transparent);
 }
+
+.final-cta-login-button:focus-visible {
+  outline: none;
+  box-shadow: var(--app-focus-ring);
+}
