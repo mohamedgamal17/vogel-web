@@ -5,7 +5,15 @@ import angular from '@angular-eslint/eslint-plugin';
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/.angular/**', '**/coverage/**'],
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.angular/**',
+      '**/coverage/**',
+      '**/build/**',
+      '**/out-tsc/**',
+      '**/tmp/**',
+    ],
   },
   {
     files: ['**/*.ts'],
