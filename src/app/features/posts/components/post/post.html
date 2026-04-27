@@ -1,30 +1,31 @@
 <mat-card class="post-card surface-panel">
   <mat-card-content>
     <div class="mb-4 flex items-start justify-between gap-3">
-      <div class="flex items-start gap-3">
-        <div class="avatar">{{ post.authorName.charAt(0) }}</div>
+      <div class="flex  items-start gap-3">
+        <div class="avatar">MG</div>
         <div>
-          <p class="m-0 text-sm font-semibold">{{ post.authorName }}</p>
-          <p class="m-0 text-xs opacity-70">{{ post.authorHandle }}</p>
+          <p class="m-0 text-sm font-semibold">{{ post.user | authorName }}</p>
         </div>
       </div>
-      <span class="text-xs opacity-60">{{ post.publishedAt }}</span>
+      <!-- <span class="text-xs opacity-60">{{  }}</span> -->
     </div>
 
     <p class="m-0 mb-4 text-sm leading-6 md:text-[0.95rem]">
-      {{ post.content }}
+      {{ post.caption }}
     </p>
 
-    @if (post.media?.type === 'image') {
-      <div class="post-media mb-4">
-        <img [src]="post.media!.src" [alt]="post.media!.alt || 'Post image'" loading="lazy" />
-      </div>
-    }
+    @if (post.media) {
+      @if (post.media.mediaType === MediaType.Image) {
+        <div class="post-media mb-4">
+          <img [src]="post.media!.reference" [alt]="post.media!.id" loading="lazy" />
+        </div>
+      }
 
-    @if (post.media?.type === 'video') {
-      <div class="post-media mb-4">
-        <video [src]="post.media!.src" [poster]="post.media!.poster || ''" controls preload="metadata"></video>
-      </div>
+      @if (post.media.mediaType === MediaType.Video) {
+        <div class="post-media mb-4">
+          <video [src]="post.media!.reference" [poster]="''" controls preload="metadata"></video>
+        </div>
+      }
     }
 
     <mat-divider />
@@ -32,26 +33,18 @@
     <div class="mt-3 flex items-center justify-between">
       <button mat-button type="button" class="post-action-btn">
         <mat-icon>favorite_border</mat-icon>
-        <span>{{ post.likes }}</span>
+        <span>{{ post.reactionSummary?.totalLike ?? 0}}</span>
       </button>
       <button mat-button type="button" class="post-action-btn" (click)="toggleCommentsVisibility()">
         <mat-icon>chat_bubble_outline</mat-icon>
-        <span>{{ areCommentsVisible ? 'Hide comments' : 'Show comments' }} ({{ commentsCount }})</span>
+        <span>{{ areCommentsVisible ? 'Hide comments' : 'Show comments' }} ({{ 0 }})</span>
       </button>
       <button mat-button type="button" class="post-action-btn">
         <mat-icon>share</mat-icon>
-        <span>{{ post.shares }}</span>
+        <span>50</span>
       </button>
     </div>
 
-    @if (areCommentsVisible) {
-      <app-post-comments
-        class="mt-4"
-        [postId]="post.id"
-        [comments]="post.comments"
-        (createComment)="onCreateComment($event)"
-        (createReply)="onCreateReply($event)"
-      />
-    }
+    @if (areCommentsVisible) {}
   </mat-card-content>
 </mat-card>

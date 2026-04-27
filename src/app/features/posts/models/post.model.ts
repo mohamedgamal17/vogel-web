@@ -8,6 +8,15 @@ export interface PostApi extends Entity{
   mediaId : string,
   user : User,
   media? : Media
+  reactionSummary : ReactionSummary
+}
+
+export interface ReactionSummary extends Entity {
+  totalLike: number
+  totalLove: number
+  totalLaugh: number
+  totalSad: number
+  totalAngry: number
 }
 
 export type PostMedia = {

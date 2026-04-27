@@ -9,7 +9,7 @@
 
   <section class="md:col-span-6">
     <app-post-feed-list
-      [posts]="feedPosts"
+      [posts]="postData()"
       [isLoading]="isFeedLoading"
       [errorMessage]="feedErrorMessage"
       [retryAttempt]="retryAttempt"

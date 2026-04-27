@@ -22,7 +22,7 @@
   @if (comments.length === 0) {
     <p class="m-0 text-sm opacity-70">No comments yet. Be the first to comment.</p>
   } @else {
-    <div class="comments-list">
+    <!-- <div class="comments-list">
       @for (comment of comments; track comment.id) {
         <app-post-comment-item
           [postId]="postId"
@@ -30,6 +30,6 @@
           (createReply)="onCreateReply($event)"
         />
       }
-    </div>
+    </div> -->
   }
 </section>

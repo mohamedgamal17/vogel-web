@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Post } from '../../models/post.model';
+import { Post, PostApi } from '../../models/post.model';
 import { PostComponent } from '../post/post';
 
 @Component({
@@ -10,7 +10,7 @@ import { PostComponent } from '../post/post';
   styleUrl: './post-feed-list.scss',
 })
 export class PostFeedListComponent {
-  @Input({ required: true }) posts: Post[] = [];
+  @Input({ required: true }) posts: PostApi[] = [];
   @Input() isLoading = false;
   @Input() errorMessage: string | null = null;
   @Input() canRetry = true;

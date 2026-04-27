@@ -13,7 +13,7 @@ import { PostCommentItemComponent } from '../post-comment-item/post-comment-item
   styleUrl: './post-comments.scss',
 })
 export class PostCommentsComponent {
-  @Input({ required: true }) postId!: number;
+  @Input({ required: true }) postId!: string;
   @Input({ required: true }) comments: PostComment[] = [];
 
   @Output() createComment = new EventEmitter<string>();
