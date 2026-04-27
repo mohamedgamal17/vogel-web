@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, OnDestroy, OnInit } from '@angular/core';
 import { HomeQuickActionsFabComponent } from '../../components/home-quick-actions-fab/home-quick-actions-fab';
 import { HomeRightRailComponent } from '../../components/home-right-rail/home-right-rail';
 import { HomeSidebarNavComponent } from '../../components/home-sidebar-nav/home-sidebar-nav';
@@ -8,6 +8,11 @@ import { PostComposerPanelComponent } from '../../../posts/components/post-compo
 import { PostFeedListComponent } from '../../../posts/components/post-feed-list/post-feed-list';
 import { PostComposerService } from '../../../posts/services/post-composer.service';
 import { PostsFeedService } from '../../../posts/services/posts-feed.service';
+import { PostService } from '../../../posts/services/post.service';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { Paging } from '../../../../core/interfaces/paging.interface';
+import { PostApi } from '../../../posts';
+import { PagingInfo } from '../../../../core/interfaces/paging-info.interface';
 
 @Component({
   selector: 'app-home-page',
@@ -28,12 +33,32 @@ export class HomePage implements OnDestroy, OnInit {
   isFeedLoading = false;
   feedErrorMessage: string | null = null;
   retryAttempt = 0;
+
+  postStream = rxResource({
+    stream: () => this.postService.getAllPosts({ limit: 10, asending: false }),
+  });
+
+  postData = computed(() => {
+    if (this.postStream.isLoading() || this.postStream.error()) {
+      return [];
+    }
+    return this.postStream.value()?.data ?? [];
+  });
+
+  isPostLoading = computed(() => this.postStream.isLoading());
+
+  postError = computed(() => this.postStream.error());
+
+  hasPostError = computed(() => !!this.postError());
+
+  
   readonly maxRetryAttempts: number;
 
   constructor(
     readonly feedService: HomeFeedService,
     readonly postsFeedService: PostsFeedService,
-    readonly composerService: PostComposerService
+    readonly composerService: PostComposerService,
+    readonly postService: PostService,
   ) {
     this.maxRetryAttempts = this.postsFeedService.getMaxRetryAttempts();
   }
