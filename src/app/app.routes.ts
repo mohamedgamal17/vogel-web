@@ -6,10 +6,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/landing/landing.routes').then((m) => m.provideLandingRoutes()),
   },
-  {
-    path: 'auth',
-    loadChildren: () => import('./features/auth/auth.routes').then((m) => m.provideAuthRoutes()),
-  },
+
   {
     path: 'home',
     loadChildren: () =>
