@@ -1,3 +1,15 @@
+import { Entity } from "../../../core/interfaces/entity.interface";
+import { Media } from "../../medias/interfaces/media.interface";
+import { User } from "../../users/interfaces/user.interface";
+
+export interface PostApi extends Entity{
+  caption : string,
+  userId : string,
+  mediaId : string,
+  user : User,
+  media? : Media
+}
+
 export type PostMedia = {
   type: 'image' | 'video';
   src: string;
@@ -22,7 +34,7 @@ export type PostComment = {
   replies: PostCommentReply[];
 };
 
-export type Post = {
+export type Post   = {
   id: number;
   authorName: string;
   authorHandle: string;
