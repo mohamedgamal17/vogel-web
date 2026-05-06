@@ -17,13 +17,13 @@
     @if (post.media) {
       @if (post.media.mediaType === MediaType.Image) {
         <div class="post-media mb-4">
-          <img [src]="post.media!.reference" [alt]="post.media!.id" loading="lazy" />
+          <img [src]="post.media!.reference ?? post.media!.file" [alt]="post.media!.id" loading="lazy" />
         </div>
       }
 
       @if (post.media.mediaType === MediaType.Video) {
         <div class="post-media mb-4">
-          <video [src]="post.media!.reference" [poster]="''" controls preload="metadata"></video>
+          <video [src]="post.media!.reference ?? post.media!.file" [poster]="''" controls preload="metadata"></video>
         </div>
       }
     }
